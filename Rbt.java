@@ -61,5 +61,17 @@ public class Rbt extends Bst {
     public Rbt() {
         super();
     }
-    
+
+    public void insert(String s) {
+        insert(new Node(s));
+        return;
+    }
+
+    public void insert(Node n) {
+        super.insert(n);
+        fixUp(n); 
+    }    
+
+    public void fixUp(Node n) {
+    }
 }
