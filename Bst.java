@@ -132,24 +132,29 @@ public class Bst {
     }
 
     public void insert(String s) {
+        insert(new Node(s));
+        return;
+    }
+
+    public void insert(Node n) {
         if (rootNode == null) {
-            rootNode = new Node(s);
+            rootNode = n;
             rootNode.setParent(rootNode);
             return;
         }
         Node curr = rootNode;
         while (true) {
-            int compare = s.compareTo(curr.getValue());
+            int compare = n.getValue().compareTo(curr.getValue());
             if (compare < 0) {
                 if (curr.getLeftChild() == null) {
-                    curr.setLeftChild(new Node(s));
+                    curr.setLeftChild(n);
                     curr.getLeftChild().setParent(curr);
                     return;
                 }
                 curr = curr.getLeftChild();
             } else if (compare > 0) {
                 if (curr.getRightChild() == null) {
-                    curr.setRightChild(new Node(s));
+                    curr.setRightChild(n);
                     curr.getRightChild().setParent(curr);
                     return;
                 }
