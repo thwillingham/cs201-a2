@@ -1,7 +1,7 @@
 import java.awt.Color;
 
 public class Rbt extends Bst {
-    public class Node extends Bst.Node {
+    protected class Node extends Bst.Node {
         Color color = Color.red;
 
         public Node(String s) {
@@ -32,17 +32,27 @@ public class Rbt extends Bst {
             if (getParent() == null) {
                 return null;
             } else {
-                return getParent().getParent();
+                return (Node)getParent().getParent();
             }
         }
 
-        public Node sibling() {
+        public Node getUncle() {
+            if (getGrandparent() == null) {
+                return null;
+            } else if (getGrandparent().getLeftChild().getLeftChild() == this || getGrandparent().getLeftChild().getRightChild() == this) {
+                return (Node)getGrandparent().getRightChild();
+            } else {
+                return (Node)getGrandparent().getLeftChild();
+            }
+        }
+
+        public Node getSibling() {
             if (getParent() == null) {
                 return null;
-            } else if (getParent().getLeftChild == this) {
-                return getParent().getRightChild();
+            } else if (getParent().getLeftChild() == this) {
+                return (Node)getParent().getRightChild();
             } else {
-                return getParent().getLeftChild();
+                return (Node)getParent().getLeftChild();
             }
         } 
 

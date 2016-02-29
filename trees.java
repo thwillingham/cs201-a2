@@ -15,6 +15,11 @@ public class trees {
         tree.insert("lazy");
         tree.insert("dog");
         tree.print();
-    
+
+   
+       tree.delete("the");
+       tree.print(); 
+
+       Rbt RbtTree = new Rbt();
     }
 }

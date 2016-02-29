@@ -1,19 +1,23 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Bst {
-    private BstNode rootNode;
+    private Node rootNode;
 
-    private class BstNode {
+    protected class Node {
         private String value;
-        private int weight;
-        private BstNode parent;
-        private BstNode leftChild;
-        private BstNode rightChild;
+        private int frequency;
+        private Node parent;
+        private Node leftChild;
+        private Node rightChild;
 
-        public BstNode() {
+        public Node(String s) {
             parent = null;
             leftChild = null;
             rightChild = null;
-            value = "";
-            weight = 0;
+            value = s;
+            frequency = 1;
+            return;
         }
 
         public String getValue() {
@@ -22,39 +26,69 @@ public class Bst {
 
         public void setValue(String v) {
             value = v;
+            return;
         }
 
-        public int getWeight() {
-            return weight;
+        public int getFrequency() {
+            return frequency;
         }
 
-        public void setWeight(int w) {
-            weight = w;
+        public void setFrequency(int f) {
+            frequency = f;
+            return;
         }
 
-        public BstNode getParent() {
+        public Node getParent() {
             return parent;
         }
 
-        public void setParent(BstNode p) {
+        public void setParent(Node p) {
             parent = p;
+            return;
         }
 
-        public BstNode getLeftChild() {
+        public Node getLeftChild() {
             return leftChild;
         }
 
-        public void setLeftChild(BstNode l) {
+        public void setLeftChild(Node l) {
             leftChild = l;
+            return;
         }
 
-        public BstNode getRightChild() {
+        public Node getRightChild() {
             return rightChild;
         }
 
-        public void setRightChild(BstNode r) {
+        public void setRightChild(Node r) {
             rightChild = r;
+            return;
         }
+
+        public void incrementFrequency() {
+            frequency += 1;
+            return;
+        }
+
+        public void decrementFrequency() {
+            frequency -= 1;
+            return;
+        }
+
+        public boolean isLeaf() {
+            return (this.getLeftChild() == null && this.getRightChild() == null);
+        }
+
+        public Node getPredecessor() {
+            Node curr = this.getLeftChild();
+            if (curr != null) {
+                while (curr.getRightChild() != null) {
+                    curr = curr.getRightChild();
+                }
+            }
+            return curr;
+        }
+
     }
 
     public Bst() {
@@ -63,5 +97,134 @@ public class Bst {
 
     public String getRootValue() {
         return rootNode.getValue();
+    }
+
+    public void setRootNode(Node n) {
+        if (n != null) {
+            n.setParent(null);
+        }
+        this.rootNode = n;
+    }
+
+    public Node getNode(String s) {
+        if (rootNode.getValue() == null) {
+            return null;
+        }
+        Node curr = rootNode;
+        while (curr.getValue() != null) {
+            int compare = s.compareTo(curr.getValue());
+            if (compare < 0) {
+                if (curr.getLeftChild() == null) {
+                    return null;
+                }
+                curr = curr.getLeftChild();
+            } else if (compare > 0) {
+                if (curr.getRightChild() == null) {
+                    return null;
+                }
+                curr = curr.getRightChild();
+            } else if (curr.getValue() == s) { // strings are equal
+                return curr;
+            }
+        }
+        return null;
+ 
+    }
+
+    public void insert(String s) {
+        if (rootNode == null) {
+            rootNode = new Node(s);
+            rootNode.setParent(rootNode);
+            return;
+        }
+        Node curr = rootNode;
+        while (true) {
+            int compare = s.compareTo(curr.getValue());
+            if (compare < 0) {
+                if (curr.getLeftChild() == null) {
+                    curr.setLeftChild(new Node(s));
+                    curr.getLeftChild().setParent(curr);
+                    return;
+                }
+                curr = curr.getLeftChild();
+            } else if (compare > 0) {
+                if (curr.getRightChild() == null) {
+                    curr.setRightChild(new Node(s));
+                    curr.getRightChild().setParent(curr);
+                    return;
+                }
+                curr = curr.getRightChild();
+            } else { // strings are equal
+                curr.incrementFrequency();
+                return;
+            }
+        }
+    }
+    
+    public void delete(String s) {
+        Node curr = this.getNode(s);
+        if (curr == null) {
+            return;
+        } else if (!curr.isLeaf()) {
+            if (curr.getFrequency() > 1) {
+                curr.decrementFrequency();
+                return;
+            }
+            Node predecessor = curr.getPredecessor();
+            curr.setValue(predecessor.getValue());
+            curr.setFrequency(predecessor.getFrequency());
+            curr = predecessor;
+        }
+        Node move = null;
+        if (curr.getLeftChild() == null) {
+            move = curr.getRightChild();
+        } else {
+            move = curr.getLeftChild();
+        }
+        if (curr == rootNode) {
+            setRootNode(move);
+        } else if (curr.getParent().getLeftChild() == curr) {
+            curr.getParent().setLeftChild(move);
+        } else {
+            curr.getParent().setRightChild(move);
+        }
+    }
+
+    public void print() {
+        Queue<Node> q = new LinkedList<Node>();
+        if (rootNode == null) { return; }
+        q.add(rootNode);
+        String stringToPrint = "";
+        int lineNumber = 1;
+        while (!q.isEmpty()) {
+            int count = q.size();
+            System.out.print(lineNumber + ": ");
+            while (count > 0) {
+                Node curr = q.remove();
+                if (curr.getLeftChild() == null && curr.getRightChild() == null) {
+                    stringToPrint = stringToPrint + "=";
+                }
+                stringToPrint = stringToPrint + curr.getValue() + "(" + curr.getParent().getValue() + ")" + curr.getFrequency();
+                if (curr == rootNode) {
+                    stringToPrint = stringToPrint + "X";
+                } else if (curr.getParent().getLeftChild() == curr) {
+                    stringToPrint = stringToPrint + "L ";
+                } else if (curr.getParent().getRightChild() == curr) {
+                    stringToPrint = stringToPrint + "R ";
+                }
+                System.out.print(stringToPrint);
+                if (curr.getLeftChild() != null) {
+                    q.add(curr.getLeftChild());
+                }
+                if (curr.getRightChild() != null) {
+                    q.add(curr.getRightChild());
+                }
+                count--;
+                stringToPrint = "";
+            }
+            System.out.println("");
+            lineNumber += 1;
+        }
+        return;
     }
 }
