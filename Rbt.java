@@ -7,7 +7,7 @@ public class Rbt extends Bst {
         public Node(String s) {
             super(s);
         }
-        
+
         public Color getColor() {
             return this.color;
         }
@@ -23,11 +23,11 @@ public class Rbt extends Bst {
         public boolean isBlack() {
             return (this.color == Color.black);
         }
-        
+
         public void setColorBlack() {
             this.color = Color.black;
         }
-        
+
         public Node getGrandparent() {
             if (getParent() == null) {
                 return null;
@@ -54,7 +54,17 @@ public class Rbt extends Bst {
             } else {
                 return (Node)getParent().getLeftChild();
             }
-        } 
+        }
+
+        public void rotateLeft() {
+            int y = 1;
+            return;
+        }
+
+        public void rotateRight() {
+            int x = 0;
+            return;
+        }
 
     }
 
@@ -69,9 +79,32 @@ public class Rbt extends Bst {
 
     public void insert(Node n) {
         super.insert(n);
-        fixUp(n); 
-    }    
+        fixUp(n);
+    }
 
-    public void fixUp(Node n) {
+    public void fixUp(Node curr) {
+        if (((Node)curr.getParent()).isRed()) {
+            if (curr.getUncle().isRed()) {
+                ((Node)curr.getParent()).setColorBlack();
+                curr.getUncle().setColorBlack();
+                curr.getGrandparent().setColorRed();
+                fixUp(curr.getGrandparent());
+            } else if (curr.getParent() == curr.getGrandparent().getLeftChild()) {
+                if (curr == curr.getParent().getRightChild()) {
+                    ((Node)curr.getParent()).rotateLeft();
+                }
+                ((Node)curr.getParent()).setColorBlack();
+                curr.getGrandparent().setColorRed();
+                curr.getGrandparent().rotateRight();
+            } else if (curr.getParent() == curr.getGrandparent().getRightChild()) {
+                if (curr == curr.getParent().getLeftChild()) {
+                    ((Node)curr.getParent()).rotateRight();
+                }
+                ((Node)curr.getParent()).setColorBlack();
+                curr.getGrandparent().setColorRed();
+                curr.getGrandparent().rotateLeft();
+            }
+        }
+        ((Node)rootNode).setColorBlack();
     }
 }

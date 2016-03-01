@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Bst {
-    private Node rootNode;
+    protected Node rootNode;
 
     protected class Node {
         private String value;
@@ -128,7 +128,7 @@ public class Bst {
             }
         }
         return null;
- 
+
     }
 
     public void insert(String s) {
@@ -165,7 +165,7 @@ public class Bst {
             }
         }
     }
-    
+
     public void delete(String s) {
         Node curr = this.getNode(s);
         if (curr == null) {
