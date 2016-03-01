@@ -61,8 +61,8 @@ public class Rbt extends Bst {
                 return;
             }
             Node curr = this;
-            Node prev = this.getRightChild();
-            curr.setRightChild() = prev.getLeftChild();
+            Node prev = ((Node)this.getRightChild());
+            curr.setRightChild(prev.getLeftChild());
             if (curr.getParent() == null) {
                 rootNode = prev;
             } else if (curr.getParent().getLeftChild() == curr) {
@@ -70,12 +70,24 @@ public class Rbt extends Bst {
             } else {
                 curr.getParent().setRightChild(prev);
             }
-            
+            prev.setLeftChild(curr);
         }
 
         public void rotateRight() {
-            int x = 0;
-            return;
+          if (this.getLeftChild() == null) {
+              return;
+          }
+          Node curr = this;
+          Node prev = ((Node)this.getLeftChild());
+          curr.setLeftChild(prev.getRightChild());
+          if (curr.getParent() == null) {
+              rootNode = prev;
+          } else if (curr.getParent().getLeftChild() == curr) {
+              curr.getParent().setLeftChild(prev);
+          } else {
+              curr.getParent().setRightChild(prev);
+          }
+          prev.setRightChild(curr);
         }
 
     }
