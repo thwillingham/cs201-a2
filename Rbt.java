@@ -57,8 +57,20 @@ public class Rbt extends Bst {
         }
 
         public void rotateLeft() {
-            int y = 1;
-            return;
+            if (this.getRightChild() == null) {
+                return;
+            }
+            Node curr = this;
+            Node prev = this.getRightChild();
+            curr.setRightChild() = prev.getLeftChild();
+            if (curr.getParent() == null) {
+                rootNode = prev;
+            } else if (curr.getParent().getLeftChild() == curr) {
+                curr.getParent().setLeftChild(prev);
+            } else {
+                curr.getParent().setRightChild(prev);
+            }
+            
         }
 
         public void rotateRight() {
