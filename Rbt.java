@@ -29,7 +29,7 @@ public class Rbt extends Bst {
         }
 
         public Node getGrandparent() {
-            if (getParent() == null) {
+            if (this == null || getParent() == null || getParent().getParent() == getParent()) {
                 return null;
             } else {
                 return (Node)getParent().getParent();
@@ -37,9 +37,9 @@ public class Rbt extends Bst {
         }
 
         public Node getUncle() {
-            if (getGrandparent() == null) {
+            if (this == null || getGrandparent() == null) {
                 return null;
-            } else if (getGrandparent().getLeftChild().getLeftChild() == this || getGrandparent().getLeftChild().getRightChild() == this) {
+            } else if (getGrandparent().getLeftChild() == getParent()) {
                 return (Node)getGrandparent().getRightChild();
             } else {
                 return (Node)getGrandparent().getLeftChild();
@@ -47,7 +47,7 @@ public class Rbt extends Bst {
         }
 
         public Node getSibling() {
-            if (getParent() == null) {
+            if (this == null || getParent() == null) {
                 return null;
             } else if (getParent().getLeftChild() == this) {
                 return (Node)getParent().getRightChild();
@@ -102,13 +102,32 @@ public class Rbt extends Bst {
     }
 
     public void insert(Node n) {
-        super.insert(n);
-        fixUp(n);
+        Node curr = ((Node)super.insert(n));
+        fixUp(curr);
+        print();
     }
-
-    public void fixUp(Node curr) {
-        if (((Node)curr.getParent()).isRed()) {
-            if (curr.getUncle().isRed()) {
+    
+    public boolean isNotLinear(Node curr) {
+    	if (curr.getParent() == null || curr.getGrandparent() == null) {
+    		return false;
+    	}
+    	boolean lin = true;
+    	if (curr.getParent().getLeftChild() == curr && curr.getGrandparent().getLeftChild() == curr.getParent()) {
+    		lin = false;
+    	} else if (curr.getParent().getRightChild() == curr && curr.getGrandparent().getRightChild() == curr.getParent()) {
+    		lin = false;
+    	}
+    	return lin;
+    }
+/*
+    public void fixUp(Node n) {
+        //if (n == rootNode || n.getParent() == rootNode) {
+          //((Node)rootNode).setColorBlack();
+          //return;
+        //}
+        Node curr = n;
+        if (rootNode != n && ((Node)curr.getParent()).isRed()) {
+            if (curr.getUncle() != null && curr.getUncle().isRed()) {
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getUncle().setColorBlack();
                 curr.getGrandparent().setColorRed();
@@ -130,5 +149,39 @@ public class Rbt extends Bst {
             }
         }
         ((Node)rootNode).setColorBlack();
+    }*/
+
+    public void fixUp(Node n) {
+    	Node curr = n;
+    	while(true) {
+	    	if (rootNode == curr) { return; }
+	    	
+	    	if (((Node)curr.getParent()).isBlack()) { return; }
+	    	
+	    	if (curr.getUncle() != null && curr.getUncle().isRed()) {
+	    		((Node)curr.getParent()).setColorBlack();
+	    		curr.getUncle().setColorBlack();
+	    		curr.getGrandparent().setColorRed();
+	    		curr = curr.getGrandparent();
+	    	} else {
+	    		if (isNotLinear(curr)) {
+	    			if (curr.getParent().getLeftChild() == curr) {
+	    				curr.rotateRight();
+	    			} else {
+	    				curr.rotateLeft();
+	    			}
+	    		}
+    			((Node)curr.getParent()).setColorBlack();
+    			curr.getGrandparent().setColorRed();
+    			if (curr.getGrandparent().getLeftChild() == curr.getParent()) {
+    				((Node)curr.getParent()).rotateRight();
+    			} else {
+    				((Node)curr.getParent()).rotateLeft();
+	    		}	    			
+	    	}
+	    	((Node)rootNode).setColorBlack();
+    	}
+    	
     }
+
 }

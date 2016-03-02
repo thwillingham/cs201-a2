@@ -5,11 +5,11 @@ public class Bst {
     protected Node rootNode;
 
     protected class Node {
-        private String value;
-        private int frequency;
-        private Node parent;
-        private Node leftChild;
-        private Node rightChild;
+        protected String value;
+        protected int frequency;
+        protected Node parent;
+        protected Node leftChild;
+        protected Node rightChild;
 
         public Node(String s) {
             parent = null;
@@ -48,20 +48,26 @@ public class Bst {
         }
 
         public Node getLeftChild() {
-            return leftChild;
+			return leftChild;
         }
 
         public void setLeftChild(Node l) {
             leftChild = l;
+            if (l != null) {
+            	l.setParent(this);
+            }
             return;
         }
 
         public Node getRightChild() {
-            return rightChild;
+			return rightChild;
         }
 
         public void setRightChild(Node r) {
             rightChild = r;
+            if (r != null) {
+            	r.setParent(this);
+            }
             return;
         }
 
@@ -136,11 +142,11 @@ public class Bst {
         return;
     }
 
-    public void insert(Node n) {
+    public Node insert(Node n) {
         if (rootNode == null) {
             rootNode = n;
-            rootNode.setParent(rootNode);
-            return;
+            //rootNode.setParent(rootNode);
+            return n;
         }
         Node curr = rootNode;
         while (true) {
@@ -149,19 +155,19 @@ public class Bst {
                 if (curr.getLeftChild() == null) {
                     curr.setLeftChild(n);
                     curr.getLeftChild().setParent(curr);
-                    return;
+                    return curr;
                 }
                 curr = curr.getLeftChild();
             } else if (compare > 0) {
                 if (curr.getRightChild() == null) {
                     curr.setRightChild(n);
                     curr.getRightChild().setParent(curr);
-                    return;
+                    return curr;
                 }
                 curr = curr.getRightChild();
             } else { // strings are equal
                 curr.incrementFrequency();
-                return;
+                return curr;
             }
         }
     }
@@ -200,6 +206,7 @@ public class Bst {
         if (rootNode == null) { return; }
         q.add(rootNode);
         String stringToPrint = "";
+        String parentValue = "";
         int lineNumber = 1;
         while (!q.isEmpty()) {
             int count = q.size();
@@ -209,7 +216,12 @@ public class Bst {
                 if (curr.getLeftChild() == null && curr.getRightChild() == null) {
                     stringToPrint = stringToPrint + "=";
                 }
-                stringToPrint = stringToPrint + curr.getValue() + "(" + curr.getParent().getValue() + ")" + curr.getFrequency();
+                if (rootNode == curr) {
+                	parentValue = rootNode.getValue();
+                } else {
+                	parentValue = curr.getParent().getValue();
+                }
+                stringToPrint = stringToPrint + curr.getValue() + "(" + parentValue + ")" + curr.getFrequency();
                 if (curr == rootNode) {
                     stringToPrint = stringToPrint + "X";
                 } else if (curr.getParent().getLeftChild() == curr) {
