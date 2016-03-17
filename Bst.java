@@ -155,14 +155,14 @@ public class Bst {
                 if (curr.getLeftChild() == null) {
                     curr.setLeftChild(n);
                     curr.getLeftChild().setParent(curr);
-                    return curr;
+                    return n;
                 }
                 curr = curr.getLeftChild();
             } else if (compare > 0) {
                 if (curr.getRightChild() == null) {
                     curr.setRightChild(n);
                     curr.getRightChild().setParent(curr);
-                    return curr;
+                    return n;
                 }
                 curr = curr.getRightChild();
             } else { // strings are equal

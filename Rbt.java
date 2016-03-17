@@ -1,4 +1,8 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.awt.Color;
+
+
 
 public class Rbt extends Bst {
     protected class Node extends Bst.Node {
@@ -63,8 +67,9 @@ public class Rbt extends Bst {
             Node curr = this;
             Node prev = ((Node)this.getRightChild());
             curr.setRightChild(prev.getLeftChild());
-            if (curr.getParent() == null) {
-                rootNode = prev;
+            System.out.println("parent: " + String.valueOf(curr.getParent().getValue()));
+            if (curr.getParent() == null || curr.getParent() == curr) {
+                setRootNode(prev);
             } else if (curr.getParent().getLeftChild() == curr) {
                 curr.getParent().setLeftChild(prev);
             } else {
@@ -81,7 +86,7 @@ public class Rbt extends Bst {
           Node prev = ((Node)this.getLeftChild());
           curr.setLeftChild(prev.getRightChild());
           if (curr.getParent() == null) {
-              rootNode = prev;
+              setRootNode(prev);
           } else if (curr.getParent().getLeftChild() == curr) {
               curr.getParent().setLeftChild(prev);
           } else {
@@ -102,9 +107,15 @@ public class Rbt extends Bst {
     }
 
     public void insert(Node n) {
-        Node curr = ((Node)super.insert(n));
-        fixUp(curr);
-        print();
+        
+        if (this.rootNode == null) {
+            this.rootNode = n;
+            ((Node) this.rootNode).setColorBlack();
+        } else {
+            Node curr = ((Node)super.insert(n));
+            fixUp(curr);
+        }
+            //print();
     }
     
     public boolean isNotLinear(Node curr) {
@@ -119,69 +130,104 @@ public class Rbt extends Bst {
     	}
     	return lin;
     }
-/*
+
     public void fixUp(Node n) {
-        //if (n == rootNode || n.getParent() == rootNode) {
-          //((Node)rootNode).setColorBlack();
-          //return;
-        //}
+        if (n.getFrequency() > 1) {
+            return;
+        }
+        
         Node curr = n;
+        curr.setColorRed();
+        System.out.println("root: " + rootNode.getValue());
+        System.out.println("curr: " + curr.getValue());
+        System.out.println("curr is root: " + Boolean.toString(curr == rootNode));
         if (rootNode != n && ((Node)curr.getParent()).isRed()) {
             if (curr.getUncle() != null && curr.getUncle().isRed()) {
+                System.out.println("%%% 1");
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getUncle().setColorBlack();
                 curr.getGrandparent().setColorRed();
                 fixUp(curr.getGrandparent());
             } else if (curr.getParent() == curr.getGrandparent().getLeftChild()) {
+                System.out.println("here 1");
                 if (curr == curr.getParent().getRightChild()) {
-                    ((Node)curr.getParent()).rotateLeft();
+                    curr = ((Node)curr.getParent());
+                    curr.rotateLeft();
                 }
+                System.out.println("%%% 2");
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getGrandparent().setColorRed();
-                curr.getGrandparent().rotateRight();
+                System.out.println("before");
+                this.print();
+                ((Node) curr.getGrandparent()).rotateRight();
+                System.out.println("after");
+                this.print();
             } else if (curr.getParent() == curr.getGrandparent().getRightChild()) {
                 if (curr == curr.getParent().getLeftChild()) {
                     ((Node)curr.getParent()).rotateRight();
                 }
+                System.out.println("%%% 3");
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getGrandparent().setColorRed();
                 curr.getGrandparent().rotateLeft();
             }
         }
         ((Node)rootNode).setColorBlack();
-    }*/
-
-    public void fixUp(Node n) {
-    	Node curr = n;
-    	while(true) {
-	    	if (rootNode == curr) { return; }
-	    	
-	    	if (((Node)curr.getParent()).isBlack()) { return; }
-	    	
-	    	if (curr.getUncle() != null && curr.getUncle().isRed()) {
-	    		((Node)curr.getParent()).setColorBlack();
-	    		curr.getUncle().setColorBlack();
-	    		curr.getGrandparent().setColorRed();
-	    		curr = curr.getGrandparent();
-	    	} else {
-	    		if (isNotLinear(curr)) {
-	    			if (curr.getParent().getLeftChild() == curr) {
-	    				curr.rotateRight();
-	    			} else {
-	    				curr.rotateLeft();
-	    			}
-	    		}
-    			((Node)curr.getParent()).setColorBlack();
-    			curr.getGrandparent().setColorRed();
-    			if (curr.getGrandparent().getLeftChild() == curr.getParent()) {
-    				((Node)curr.getParent()).rotateRight();
-    			} else {
-    				((Node)curr.getParent()).rotateLeft();
-	    		}	    			
-	    	}
-	    	((Node)rootNode).setColorBlack();
-    	}
-    	
     }
 
+    @Override
+    public void print() {
+        Queue<Node> q = new LinkedList<Node>();
+        if (rootNode == null) { return; }
+        q.add((Node)rootNode);
+        String stringToPrint = "";
+        Node parent = null;
+        int lineNumber = 1;
+        while (!q.isEmpty()) {
+            //if (lineNumber > 10) {return;}
+            int count = q.size();
+            System.out.print(lineNumber + ": ");
+            while (count > 0) {
+                Node curr = q.remove();
+                if (curr.getLeftChild() == null && curr.getRightChild() == null) {
+                    stringToPrint = stringToPrint + "=";
+                }
+                if (rootNode == curr) {
+                	parent = ((Node) rootNode);
+                } else {
+                	parent = ((Node) curr.getParent());
+                }
+                stringToPrint = stringToPrint + curr.getValue();
+                //System.out.println(curr.isRed());
+                if (curr.isRed()) {
+                    stringToPrint.concat("*");
+                    stringToPrint = stringToPrint + "*";
+                }
+                stringToPrint = stringToPrint + "(" + parent.getValue();
+                if (parent.isRed()) {
+                    stringToPrint = stringToPrint + "*";
+                }
+                stringToPrint = stringToPrint + ")" + curr.getFrequency();
+                if (curr == rootNode) {
+                    stringToPrint = stringToPrint + "X";
+                } else if (curr.getParent().getLeftChild() == curr) {
+                    stringToPrint = stringToPrint + "L ";
+                } else if (curr.getParent().getRightChild() == curr) {
+                    stringToPrint = stringToPrint + "R ";
+                }
+                System.out.print(stringToPrint);
+                if (curr.getLeftChild() != null) {
+                    q.add((Node)curr.getLeftChild());
+                }
+                if (curr.getRightChild() != null) {
+                    q.add((Node)curr.getRightChild());
+                }
+                count--;
+                stringToPrint = "";
+            }
+            System.out.println("");
+            lineNumber += 1;
+        }
+        return;
+    }
 }

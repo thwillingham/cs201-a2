@@ -16,41 +16,26 @@ public class trees {
         tree.insert("dog");
         tree.print();
 
+       System.out.println("############");
+       System.out.println("############");
+       System.out.println("############");
+       System.out.println("############");
 
+
+
+        String[] words = {"the", "quick", "brown", "fox", "jumped", "over", "the", "girl", "and", "her", "lazy", "lazy", "dog"};
        //tree.delete("the");
        //tree.print();
-       System.out.println("############");
-       System.out.println("############");
-       System.out.println("############");
-       System.out.println("############");
+       //
+        Rbt ree = new Rbt();
 
-       Rbt ree = new Rbt();
-       ree.insert("the");
-       System.out.println("inserted: the");
-       ree.insert("quick");
-       System.out.println("inserted: quick");
-       ree.insert("brown");
-       System.out.println("inserted: brown");
-       ree.insert("fox");
-       System.out.println("inserted: fox");
-       ree.insert("jumped");
-       System.out.println("inserted: jumped");
-       ree.insert("over");
-       System.out.println("inserted: over");
-       ree.insert("the");
-       System.out.println("inserted: the");
-       ree.insert("girl");
-       System.out.println("inserted: girl");
-       ree.insert("and");
-       System.out.println("inserted: and");
-       ree.insert("her");
-       System.out.println("inserted: her");
-       ree.insert("lazy");
-       System.out.println("inserted: lazy");
-       ree.insert("lazy");
-       System.out.println("inserted: lazy");
-       ree.insert("dog");
-       System.out.println("inserted: dog");
-       ree.print();
+        for (String s: words) {
+            ree.insert(s);
+            ree.print();
+            System.out.println("inserted: " + s + "\n");
+        }
+
+
+       
     }
 }
