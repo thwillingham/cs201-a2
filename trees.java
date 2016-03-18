@@ -31,11 +31,14 @@ public class trees {
 
         for (String s: words) {
             ree.insert(s);
-            ree.print();
-            System.out.println("inserted: " + s + "\n");
+            //ree.print();
+            //System.out.println("inserted: " + s + "\n");
         }
 
-
-       
+        ree.print();
+        
+        ree.delete("jumped");
+        ree.delete("brown");
+        ree.print();
     }
 }
