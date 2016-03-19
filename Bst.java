@@ -3,7 +3,7 @@ import java.util.Queue;
 
 public class Bst {
     protected Node rootNode;
-
+    protected int size = 0;
     protected class Node {
         protected String value;
         protected int frequency;
@@ -101,6 +101,50 @@ public class Bst {
         rootNode = null;
     }
 
+    public int getSize() {
+        return this.size;
+    }
+
+    public void report() {
+        System.out.println("Size: " + String.valueOf(this.size));
+        System.out.println("Min Height: " + String.valueOf(minHeight(rootNode)));
+        System.out.println("Max Height: " + String.valueOf(maxHeight(rootNode)));
+    }
+
+    public int minHeight(Node curr) {
+        if (curr == null) {
+            return 0;
+        }
+        if (curr.getLeftChild() == null && curr.getRightChild() == null) {
+            return 1;
+        }
+        if (curr.getLeftChild() == null) {
+            return minHeight(curr.getRightChild()) + 1;
+        }
+        if (curr.getRightChild() == null) {
+            return minHeight(curr.getLeftChild());
+        }
+        return Math.min(minHeight(curr.getLeftChild()), minHeight(curr.getRightChild())) + 1;
+    }
+
+    public int maxHeight(Node curr) {
+        if (curr == null) {
+            return 0;
+        }
+        if (curr.getLeftChild() == null && curr.getRightChild() == null) {
+            return 1;
+        }
+        if (curr.getLeftChild() == null) {
+            return maxHeight(curr.getRightChild()) + 1;
+        }
+        if (curr.getRightChild() == null) {
+            return maxHeight(curr.getLeftChild());
+        }
+        return Math.max(maxHeight(curr.getLeftChild()), maxHeight(curr.getRightChild())) + 1;
+    }
+
+
+
     public String getRootValue() {
         return rootNode.getValue();
     }
@@ -117,24 +161,42 @@ public class Bst {
             return null;
         }
         Node curr = rootNode;
-        while (curr.getValue() != null) {
+        while (curr != null) {
             int compare = s.compareTo(curr.getValue());
             if (compare < 0) {
+                System.out.println("less");
                 if (curr.getLeftChild() == null) {
                     return null;
                 }
                 curr = curr.getLeftChild();
             } else if (compare > 0) {
+                System.out.println("greater");
                 if (curr.getRightChild() == null) {
                     return null;
                 }
                 curr = curr.getRightChild();
-            } else if (curr.getValue() == s) { // strings are equal
+            } else if (compare == 0) { // strings are equal
+                System.out.println("equal");
                 return curr;
             }
         }
         return null;
 
+    }
+
+    public void find(String s) {
+        Node curr = getNode(s);
+        if (curr != null) {
+            System.out.println(String.valueOf(curr.getFrequency()));
+        } else {
+            System.out.println("0");
+        }
+    }
+
+    public void insert(String[] c) {
+        for (String s : c) {
+            insert(s);
+        }
     }
 
     public void insert(String s) {
@@ -143,6 +205,7 @@ public class Bst {
     }
 
     public Node insert(Node n) {
+        size++;
         if (rootNode == null) {
             rootNode = n;
             //rootNode.setParent(rootNode);
@@ -173,8 +236,10 @@ public class Bst {
     }
 
     public void delete(String s) {
+        size--;
         Node curr = this.getNode(s);
         if (curr == null) {
+            size++;
             return;
         } else if (!curr.isLeaf()) {
             if (curr.getFrequency() > 1) {

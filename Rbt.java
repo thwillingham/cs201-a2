@@ -88,7 +88,7 @@ public class Rbt extends Bst {
           Node curr = this;
           Node prev = ((Node)this.getLeftChild());
           curr.setLeftChild(prev.getRightChild());
-          if (curr.getParent() == null) {
+          if (curr.getParent() == null || curr.getParent() == curr) {
               setRootNode(prev);
           } else if (curr.getParent().getLeftChild() == curr) {
               curr.getParent().setLeftChild(prev);
@@ -135,13 +135,16 @@ public class Rbt extends Bst {
     }
 
     public void insertionFixUp(Node n) {
+        if (n == null) {
+            return;
+        }
         if (n.getFrequency() > 1) {
             return;
         }
         
         Node curr = n;
         curr.setColorRed();
-        if (rootNode != n && ((Node)curr.getParent()).isRed()) {
+        if (curr != null && rootNode != curr && ((Node)curr.getParent()).isRed()) {
             if (curr.getUncle() != null && curr.getUncle().isRed()) {
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getUncle().setColorBlack();
@@ -157,11 +160,14 @@ public class Rbt extends Bst {
                 ((Node) curr.getGrandparent()).rotateRight();
             } else if (curr.getParent() == curr.getGrandparent().getRightChild()) {
                 if (curr == curr.getParent().getLeftChild()) {
+                    //System.out.println("Curr: " + curr.getValue());
                     ((Node)curr.getParent()).rotateRight();
                 }
                 ((Node)curr.getParent()).setColorBlack();
-                curr.getGrandparent().setColorRed();
-                curr.getGrandparent().rotateLeft();
+                if (curr.getGrandparent() != null) {
+                    curr.getGrandparent().setColorRed();
+                    curr.getGrandparent().rotateLeft();
+                }
             }
         }
         ((Node)rootNode).setColorBlack();
@@ -169,8 +175,15 @@ public class Rbt extends Bst {
     
     @Override
     public void delete(String s) {
+        size--;
+        //System.out.println("hered");
         Node curr = ((Node) getNode(s));
+        //System.out.println(curr.getValue());
         if (curr == null) {
+            size++;
+            return;
+        } else if (curr.getFrequency() > 1) {
+            curr.decrementFrequency();
             return;
         } else if (curr.getLeftChild() != null && curr.getRightChild() != null) {
             Node predecessor = ((Node) curr.getPredecessor());
@@ -186,10 +199,16 @@ public class Rbt extends Bst {
         }
         if (move != null) {
             if (curr == rootNode) {
+                System.out.println("here0");
                 setRootNode(move);
             } else if (curr.getParent().getLeftChild() == curr) {
+                System.out.println("here1");
+                //move.setParent(curr.getParent());
                 curr.getParent().setLeftChild(move);
+
             } else {
+                System.out.println("here2");
+                //move.setParent(move.getParent());
                 curr.getParent().setRightChild(move);
             }
             if (curr.isBlack()) {
@@ -208,6 +227,7 @@ public class Rbt extends Bst {
             }
             curr.setParent(null);
         }
+        //System.out.println("here");
     }
 
     public void deletionFixUp(Node x) {

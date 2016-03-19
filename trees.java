@@ -1,44 +1,62 @@
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.LinkedList;
+
 public class trees {
     public static void main(String[] args) {
-        Bst tree = new Bst();
-        tree.insert("the");
-        tree.insert("quick");
-        tree.insert("brown");
-        tree.insert("fox");
-        tree.insert("jumped");
-        tree.insert("over");
-        tree.insert("the");
-        tree.insert("girl");
-        tree.insert("and");
-        tree.insert("her");
-        tree.insert("lazy");
-        tree.insert("lazy");
-        tree.insert("dog");
-        tree.print();
+        Bst tree = null;
+        if (args.length != 3) {
+            System.out.println("Error: invalid number of parameters");
+            System.exit(0);
+        }
+        
+        if (args[0].equals("-1")) {
+            boolean treeType = false;
+            tree = new Bst();
+        } else if (args[0].equals("-2")) {
+            boolean treeType = true;
+            tree = new Rbt();
+        } else {
+            System.out.println("Error: invalid tree type");
+            System.exit(0);
+        }
+        String contentsFile = args[1];
+        String commandsFile = args[2];
 
-       System.out.println("############");
-       System.out.println("############");
-       System.out.println("############");
-       System.out.println("############");
+        Importer i = new Importer(contentsFile, false);
+        String[] contents = i.getTokens();
+        tree.insert(contents);
 
 
-
-        String[] words = {"the", "quick", "brown", "fox", "jumped", "over", "the", "girl", "and", "her", "lazy", "lazy", "dog"};
-       //tree.delete("the");
-       //tree.print();
-       //
-        Rbt ree = new Rbt();
-
-        for (String s: words) {
-            ree.insert(s);
-            //ree.print();
-            //System.out.println("inserted: " + s + "\n");
+        Importer j = new Importer(commandsFile, true);
+        String[] tok = j.getTokens();
+        Queue<String> commands = new LinkedList<String>(Arrays.asList(tok));
+        
+        while (!commands.isEmpty()) {
+            String temp = commands.remove();
+            if (temp.equals("i")) {
+                System.out.println("inserting");
+                tree.insert(commands.remove());
+            } else if (temp.equals("d")) {
+                System.out.println("deleting");
+                tree.delete(commands.remove());
+            } else if (temp.equals("f")) {
+                System.out.println("finding");
+                tree.find(commands.remove());
+            } else if (temp.equals("s")) {
+                System.out.println("showing");
+                tree.print();
+            } else if (temp.equals("r")) {
+                System.out.println("reporting");
+                tree.report();
+            } else {
+                System.out.println("Error: invalid command order");
+                System.exit(0);
+            }
+            //System.out.println(commands.remove());
         }
 
-        ree.print();
-        
-        ree.delete("jumped");
-        ree.delete("brown");
-        ree.print();
+
     }
+
 }
