@@ -4,6 +4,11 @@ import java.util.Queue;
 public class Bst {
     protected Node rootNode;
     protected int size = 0;
+    
+    public void println(Object line) {
+        System.out.println(line);
+    }
+    
     protected class Node {
         protected String value;
         protected int frequency;

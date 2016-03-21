@@ -35,8 +35,11 @@ public class trees {
         while (!commands.isEmpty()) {
             String temp = commands.remove();
             if (temp.equals("i")) {
+                System.out.println("\n###############");
                 System.out.println("inserting");
                 tree.insert(commands.remove());
+                tree.print();
+                System.out.println("#################\n");
             } else if (temp.equals("d")) {
                 System.out.println("deleting");
                 tree.delete(commands.remove());
