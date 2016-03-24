@@ -1,0 +1,161 @@
+panish Chinese German Russian What is Lorem Ipsum? Why Choose Us? 
+  
+  
+  HTML  Plain text
+  paragraph(s) 
+  word(s) [4500 max.] 
+ Add randomly [!?] marks
+
+
+
+
+   Stack Overflow is a community of 4.7 million programmers, just like you, helping each other. 
+
+Join them; it only takes a minute:
+
+Sign up
+Join the Stack Overflow community to:
+Ask programming questions Answer and help your peers Get recognized for your expertise
+git: undo all working dir changes including new files
+
+
+up vote
+588
+down vote
+favorite
+247
+How to delete all changes from working directory including new untracked files. I know that git checkout -f does that, but it doesn't delete new untracked files created since last commit.
+
+Does anybody have an idea how to do that?
+
+git
+shareimprove this question
+edited Jul 7 '09 at 4:09
+
+Jim Puls
+41.9k95476
+asked Jul 7 '09 at 4:07
+
+Aler
+3,54761622
+110     
+I should probably memorize this at some point, I must refer back to this 3 times a week :-P – Joel Martinez Sep 21 '11 at 19:26
+17      
+@JoelMartinez I laughed out loud, because I just came back here for the third time this week. – Ethan Mick May 10 '12 at 18:10
+        
+@Joel & Wayfarer: why don't you try git help reset and git help clean – SHernandez Jan 4 '15 at 16:53
+1       
+Making an alias for this in your git config is a good idea ;) – anubina Sep 9 '15 at 17:02
+add a comment
+9 Answers
+active oldest votes
+up vote
+918
+down vote
+accepted
+git reset --hard # removes staged and working directory changes
+
+## !! be very careful with these !!
+## you may end up deleting what you don't want to
+## read comments and manual.
+git clean -f -d # remove untracked AND ignored files
+git clean -f -x -d # CAUTION: as above but removes ignored files like config.
+git clean -fxd :/ # CAUTION: as above, but cleans untracked and ignored files through the entire repo (without :/, the operation affects only the current directory)
+shareimprove this answer
+edited Jan 12 at 18:05
+
+Community♦
+1
+answered Jul 7 '09 at 4:09
+rdtsc
+12      
+Note: git reset --hard removes staged changes as well as working directory changes. Also, git clean -f -d is probably a better opposite of adding a new untracked file. From the question, the asker may be quite happy with his current set of ignored files. – Charles Bailey Jul 7 '09 at 6:49
+7       
+Read the next answer and watch out of the -x switch. (It might also remove your local config such as password/db-settings files. e.g. database.yml) – Boris Apr 7 '11 at 19:12 
+9       
+That -x switch is unnecessary and somewhat dangerous in this case. – Tim Gautier Jul 26 '11 at 15:48
+38      
+git clean -fxd can actually be REALLY dangerous if you don't know what you're doing. You may end up permanently deleting some very important untracked files, such as your database, etc. Use caution. – Masondesu Aug 18 '11 at 1:22
+6       
+Note that git clean -f -d will delete files from ignored folders too. So all you local logs and things like that will be gone. Usually it's not a big problem, but it's better to know. – cyriel Oct 2 '13 at 12:31
+show 9 more comments
+
+up vote
+94
+down vote
+Safest method, which I use frequently:
+
+git clean -fd
+shareimprove this answer
+answered Apr 18 '12 at 16:15
+
+Heath Dutton
+1,05855
+52      
+I always git clean -nd . before actually deleting files using git clean -fd . – tbear May 17 '12 at 6:40
+6       
+Why? Can you explain the detail please. – Greg B Mar 27 '14 at 23:03
+12      
+Per git clean -n option is actually a dry run which doesn't remove anything, it just shows you what will be done. – Nick Mc Apr 30 '14 at 15:45
+        
+@tbear, You can always do a blank add -A + commit -a + revert head first before git clean. Reviewing each and every delete simply doesn't scale for major scenarios. Also, dry running is not a silver bullet: what if you missed something or made a mistake during the review? – Pacerier Oct 20 '15 at 9:19
+add a comment
+up vote
+71
+down vote
+For all unstaged files use:
+
+git checkout -- .
+The . at the end is important.
+
+You can replace . with a sub-directory name to clear only a specific sub-directory of your project. The problem is addressed specifically here.
+
+shareimprove this answer
+edited Feb 25 '15 at 15:39
+
+Antonio
+6,43831960
+answered Sep 26 '13 at 15:29
+
+jfountain
+1,2911320
+2       
+Works. Why double --? – Vincent Jul 28 '14 at 9:38
+        
+cheers mate. works as expected. – tnq177 Aug 9 '14 at 9:07
+2       
+@Vincent: The -- avoids typing errors by telling the checkout command that no more parameters are specified. Without them you could end with a new branch instead of reseting the current one! – Igor Rodriguez Feb 13 '15 at 14:58
+        
+ah so it's interpreted as an option parameter which does nothing? – Vincent Feb 13 '15 at 15:12
+        
+way better than the most voted answer – user2081518 Jan 8 at 13:22
+add a comment
+up vote
+49
+down vote
+Have a look at the git clean command.
+
+git-clean - Remove untracked files from the working tree
+
+Cleans the working tree by recursively removing files that are not under version control, starting from the current directory.
+
+Normally, only files unknown to git are removed, but if the -x option is specified, ignored files are also removed. This can, for example, be useful to remove all build products.
+shareimprove this answer
+answered Jul 7 '09 at 4:09
+
+Greg Hewgill
+472k1038241007
+add a comment
+up vote
+16
+down vote
+The following works:
+
+git add -A .
+git stash
+git stash drop stash@{0}
+Please note that this will discard both your unstaged and staged local changes. So you should commit anything you want to keep, before you run these commands.
+
+A typical use case: You moved a lot of files or directories around, and then want to get back to the original state.
+
+Credits: http://stackoverflow.com/a/52719/246

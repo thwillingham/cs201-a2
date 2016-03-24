@@ -1,0 +1,19 @@
+#inserting
+#deleting
+#deleting
+#deleting
+#inserting
+#inserting
+#deleting
+#showing
+1: happiness(happiness)1X
+2: comparison(happiness)1L overcompensations(happiness)1R 
+3: always(comparison)1L fatal(comparison)1R looks*(overcompensations)1L squalid*(overcompensations)1R 
+4: actual(always)1L as*(always)1R course(fatal)1L glamour*(fatal)1R instability(looks*)1L nearly(looks*)1R so(squalid*)1L the(squalid*)3R 
+5: =a*(actual)3L =against*(actual)1R and(as*)2L being(as*)1R =contented*(course)1L =for(glamour*)1L good(glamour*)1R in(instability)1L isnt(instability)1R misery(nearly)1L of*(nearly)5R picturesqueness*(so)1L =spectacular(so)1R struggle(the)1L with(the)2R 
+6: =application*(and)1R =by*(being)1R =grand*(good)1R =has*(in)1L =is*(isnt)1L =misfortune*(misery)1R none(of*)2L =or(of*)2R overthrow(picturesqueness*)1L =pretty(picturesqueness*)1R =stability*(struggle)2L =temptation*(struggle)1R =thing*(with)1L 
+7: =never*(none)1L =passion*(overthrow)1R 
+#reporting
+Number of nodes in tree: 45
+Min Height: 5
+Max Height: 7

@@ -1,0 +1,8 @@
+showing
+1: indicates(indicates)1X
+2: class(indicates)2L that(indicates)1R 
+3: asspath*(class)1L failed*(class)2R reason*(that)1L trying(that)1R 
+4: again(asspath*)1L attempted(asspath*)1R =classpath(failed*)1L from(failed*)1R previously(reason*)1L some(reason*)1R this*(trying)1L usually*(trying)1R 
+5: =a*(again)1L =and*(again)1R =but*(attempted)1R =for*(from)1L load(previously)2L =since*(some)1L =the(this*)2L to(this*)3R =use(usually*)1L we(usually*)1R 
+6: it(load)3L need*(load)1R =thus*(to)1L =were*(we)1R 
+7: =las*(it)1R =now*(need*)1R 
