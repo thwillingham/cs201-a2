@@ -120,21 +120,23 @@ public class Rbt extends Bst {
             size++;
         } else {
             Node curr = ((Node)super.insert(n));
-            insertionFixUp(curr);
+            if (curr.getFrequency() == 1) {
+                insertionFixUp(curr);
+            }
         }
     }
 
     @Override
     public void insert(String[] c) {
-        int i = 0;
+        //int i = 0;
         for (String s : c) {
-            println("");
-            println("i: " + String.valueOf(i));
-            println(s);
+            //println("");
+            //println("i: " + String.valueOf(i));
+            //println(s);
             this.insert(s);
-            print();
-            i++;
-            if (i>100) {System.exit(0);}
+            //print();
+            //i++;
+            //if (i>100) {System.exit(0);}
         }
     }
 
@@ -152,10 +154,10 @@ public class Rbt extends Bst {
     }
 
     public void insertionFixUp(Node n) {
-        if (n==null || n.getFrequency() > 1) {
+        /*if (n==null || n.getFrequency() > 1) {
             ((Node) rootNode).setColorBlack();
             return;
-        }
+        }*/
 
         Node curr = n;
         curr.setColorRed();
@@ -165,23 +167,23 @@ public class Rbt extends Bst {
                 curr.getUncle().setColorBlack();
                 curr.getGrandparent().setColorRed();
                 insertionFixUp(curr.getGrandparent());
-                println("iFixUp: case1");
+                //println("iFixUp: case1");
             } else if (curr.getParent() == curr.getGrandparent().getLeftChild()) {
-                println("iFixUp: case2");
+                //println("iFixUp: case2");
                 if (curr == curr.getParent().getRightChild()) {
                     curr = ((Node)curr.getParent());
                     curr.rotateLeft();
-                    println("iFixUp: case 2.5");
+                    //println("iFixUp: case 2.5");
                 }
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getGrandparent().setColorRed();
                 ((Node) curr.getGrandparent()).rotateRight();
             } else if (curr.getParent() == curr.getGrandparent().getRightChild()) {
-                println("iFixUp: case 3");
+                //println("iFixUp: case 3");
                 if (curr == curr.getParent().getLeftChild()) {
                     curr = ((Node)curr.getParent());
                     curr.rotateRight();
-                    println("iFixUp: case 3.5");
+                    //println("iFixUp: case 3.5");
                 }
                 ((Node)curr.getParent()).setColorBlack();
                 if (curr.getGrandparent() != null) {
