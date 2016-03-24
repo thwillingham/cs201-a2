@@ -34,7 +34,6 @@ public class Trees {
         Importer j = new Importer(commandsFile, true);
         String[] tok = j.getTokens();
         Queue<String> commands = new LinkedList<String>(Arrays.asList(tok));
-        
         while (!commands.isEmpty()) {
             String temp = commands.remove();
             if (temp.equals("i")) {
