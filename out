@@ -9,15 +9,23 @@ i: 1
 project
 1: the(the)1X
 2: =project*(the)1L 
+1: the(the)1X
+2: =project*(the)1L 
 
 i: 2
 gutenberg
+1: the(the)1X
+2: project*(the)1L 
+3: =gutenberg*(project*)1L 
 iFixUp: case2
 1: project(project)1X
 2: =gutenberg*(project)1L =the*(project)1R 
 
 i: 3
 ebook
+1: project(project)1X
+2: gutenberg*(project)1L =the*(project)1R 
+3: =ebook*(gutenberg*)1L 
 iFixUp: case1
 1: project(project)1X
 2: gutenberg(project)1L =the(project)1R 
@@ -28,15 +36,25 @@ of
 1: project(project)1X
 2: gutenberg(project)1L =the(project)1R 
 3: =ebook*(gutenberg)1L =of*(gutenberg)1R 
+1: project(project)1X
+2: gutenberg(project)1L =the(project)1R 
+3: =ebook*(gutenberg)1L =of*(gutenberg)1R 
 
 i: 5
 the
 1: project(project)1X
 2: gutenberg(project)1L =the(project)2R 
 3: =ebook*(gutenberg)1L =of*(gutenberg)1R 
+1: project(project)1X
+2: gutenberg(project)1L =the(project)2R 
+3: =ebook*(gutenberg)1L =of*(gutenberg)1R 
 
 i: 6
 complete
+1: project(project)1X
+2: gutenberg(project)1L =the(project)2R 
+3: ebook*(gutenberg)1L =of*(gutenberg)1R 
+4: =complete*(ebook*)1L 
 iFixUp: case1
 1: project(project)1X
 2: gutenberg*(project)1L =the(project)2R 
@@ -49,6 +67,10 @@ works
 2: gutenberg*(project)1L the(project)2R 
 3: ebook(gutenberg*)1L =of(gutenberg*)1R =works*(the)1R 
 4: =complete*(ebook)1L 
+1: project(project)1X
+2: gutenberg*(project)1L the(project)2R 
+3: ebook(gutenberg*)1L =of(gutenberg*)1R =works*(the)1R 
+4: =complete*(ebook)1L 
 
 i: 8
 of
@@ -56,9 +78,17 @@ of
 2: gutenberg*(project)1L the(project)2R 
 3: ebook(gutenberg*)1L =of(gutenberg*)2R =works*(the)1R 
 4: =complete*(ebook)1L 
+1: project(project)1X
+2: gutenberg*(project)1L the(project)2R 
+3: ebook(gutenberg*)1L =of(gutenberg*)2R =works*(the)1R 
+4: =complete*(ebook)1L 
 
 i: 9
 william
+1: project(project)1X
+2: gutenberg*(project)1L the(project)2R 
+3: ebook(gutenberg*)1L =of(gutenberg*)2R works*(the)1R 
+4: =complete*(ebook)1L =william*(works*)1L 
 iFixUp: case 3
 iFixUp: case 3.5
 1: project(project)1X
@@ -68,6 +98,10 @@ iFixUp: case 3.5
 
 i: 10
 shakespeare
+1: project(project)1X
+2: gutenberg*(project)1L william(project)1R 
+3: ebook(gutenberg*)1L =of(gutenberg*)2R the*(william)2L =works*(william)1R 
+4: =complete*(ebook)1L =shakespeare*(the*)1L 
 iFixUp: case1
 1: project(project)1X
 2: gutenberg*(project)1L william*(project)1R 
@@ -76,6 +110,11 @@ iFixUp: case1
 
 i: 11
 by
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)1R 
+3: ebook(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: complete*(ebook)1L =shakespeare*(the)1L 
+5: =by*(complete*)1L 
 iFixUp: case2
 1: project(project)1X
 2: gutenberg*(project)1L william*(project)1R 
@@ -88,9 +127,17 @@ william
 2: gutenberg*(project)1L william*(project)2R 
 3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
 4: =by*(complete)1L =ebook*(complete)1R =shakespeare*(the)1L 
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)2R 
+3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: =by*(complete)1L =ebook*(complete)1R =shakespeare*(the)1L 
 
 i: 13
 shakespeare
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)2R 
+3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: =by*(complete)1L =ebook*(complete)1R =shakespeare*(the)2L 
 1: project(project)1X
 2: gutenberg*(project)1L william*(project)2R 
 3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
@@ -102,9 +149,17 @@ this
 2: gutenberg*(project)1L william*(project)2R 
 3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
 4: =by*(complete)1L =ebook*(complete)1R =shakespeare*(the)2L =this*(the)1R 
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)2R 
+3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: =by*(complete)1L =ebook*(complete)1R =shakespeare*(the)2L =this*(the)1R 
 
 i: 15
 ebook
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)2R 
+3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: =by*(complete)1L =ebook*(complete)2R =shakespeare*(the)2L =this*(the)1R 
 1: project(project)1X
 2: gutenberg*(project)1L william*(project)2R 
 3: complete(gutenberg*)1L =of(gutenberg*)2R the(william*)2L =works(william*)1R 
@@ -116,9 +171,18 @@ is
 2: gutenberg*(project)1L william*(project)2R 
 3: complete(gutenberg*)1L of(gutenberg*)2R the(william*)2L =works(william*)1R 
 4: =by*(complete)1L =ebook*(complete)2R =is*(of)1L =shakespeare*(the)2L =this*(the)1R 
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)2R 
+3: complete(gutenberg*)1L of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: =by*(complete)1L =ebook*(complete)2R =is*(of)1L =shakespeare*(the)2L =this*(the)1R 
 
 i: 17
 for
+1: project(project)1X
+2: gutenberg*(project)1L william*(project)2R 
+3: complete(gutenberg*)1L of(gutenberg*)2R the(william*)2L =works(william*)1R 
+4: =by*(complete)1L ebook*(complete)2R =is*(of)1L =shakespeare*(the)2L =this*(the)1R 
+5: =for*(ebook*)1R 
 iFixUp: case1
 iFixUp: case1
 1: project(project)1X
@@ -134,9 +198,19 @@ the
 3: complete*(gutenberg)1L of(gutenberg)2R the(william)3L =works(william)1R 
 4: =by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare*(the)2L =this*(the)1R 
 5: =for*(ebook)1R 
+1: project(project)1X
+2: gutenberg(project)1L william(project)2R 
+3: complete*(gutenberg)1L of(gutenberg)2R the(william)3L =works(william)1R 
+4: =by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare*(the)2L =this*(the)1R 
+5: =for*(ebook)1R 
 
 i: 19
 use
+1: project(project)1X
+2: gutenberg(project)1L william(project)2R 
+3: complete*(gutenberg)1L of(gutenberg)2R the(william)3L =works(william)1R 
+4: =by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare*(the)2L this*(the)1R 
+5: =for*(ebook)1R =use*(this*)1R 
 iFixUp: case1
 1: project(project)1X
 2: gutenberg(project)1L william(project)2R 
@@ -151,6 +225,11 @@ of
 3: complete*(gutenberg)1L of(gutenberg)3R the*(william)3L =works(william)1R 
 4: =by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare(the*)2L this(the*)1R 
 5: =for*(ebook)1R =use*(this)1R 
+1: project(project)1X
+2: gutenberg(project)1L william(project)2R 
+3: complete*(gutenberg)1L of(gutenberg)3R the*(william)3L =works(william)1R 
+4: =by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare(the*)2L this(the*)1R 
+5: =for*(ebook)1R =use*(this)1R 
 
 i: 21
 anyone
@@ -159,9 +238,20 @@ anyone
 3: complete*(gutenberg)1L of(gutenberg)3R the*(william)3L =works(william)1R 
 4: by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare(the*)2L this(the*)1R 
 5: =anyone*(by)1L =for*(ebook)1R =use*(this)1R 
+1: project(project)1X
+2: gutenberg(project)1L william(project)2R 
+3: complete*(gutenberg)1L of(gutenberg)3R the*(william)3L =works(william)1R 
+4: by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare(the*)2L this(the*)1R 
+5: =anyone*(by)1L =for*(ebook)1R =use*(this)1R 
 
 i: 22
 anywhere
+1: project(project)1X
+2: gutenberg(project)1L william(project)2R 
+3: complete*(gutenberg)1L of(gutenberg)3R the*(william)3L =works(william)1R 
+4: by(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare(the*)2L this(the*)1R 
+5: anyone*(by)1L =for*(ebook)1R =use*(this)1R 
+6: =anywhere*(anyone*)1R 
 iFixUp: case2
 iFixUp: case 2.5
 1: project(project)1X
@@ -172,6 +262,12 @@ iFixUp: case 2.5
 
 i: 23
 at
+1: project(project)1X
+2: gutenberg(project)1L william(project)2R 
+3: complete*(gutenberg)1L of(gutenberg)3R the*(william)3L =works(william)1R 
+4: anywhere(complete*)1L ebook(complete*)2R =is*(of)1L =shakespeare(the*)2L this(the*)1R 
+5: =anyone*(anywhere)1L by*(anywhere)1R =for*(ebook)1R =use*(this)1R 
+6: =at*(by*)1L 
 iFixUp: case2
 iFixUp: case1
 1: project(project)1X
@@ -182,6 +278,12 @@ iFixUp: case1
 
 i: 24
 no
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L =works(william)1R 
+4: =anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L of(gutenberg*)3R =shakespeare(the*)2L this(the*)1R 
+5: =at*(by)1L =for*(ebook)1R is*(of)1L =use*(this)1R 
+6: =no*(is*)1R 
 iFixUp: case2
 iFixUp: case 2.5
 1: project(project)1X
@@ -197,9 +299,19 @@ cost
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L =works(william)1R 
 4: =anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)1R =shakespeare(the*)2L this(the*)1R 
 5: =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L =works(william)1R 
+4: =anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)1R =shakespeare(the*)2L this(the*)1R 
+5: =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
 
 i: 26
 and
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L =works(william)1R 
+4: anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)1R =shakespeare(the*)2L this(the*)1R 
+5: =and*(anyone)1L =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
 1: project(project)1X
 2: complete(project)1L william(project)2R 
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L =works(william)1R 
@@ -213,9 +325,20 @@ with
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
 4: anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)1R =shakespeare(the*)2L this(the*)1R =with*(works)1L 
 5: =and*(anyone)1L =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
+4: anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)1R =shakespeare(the*)2L this(the*)1R =with*(works)1L 
+5: =and*(anyone)1L =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
 
 i: 28
 almost
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
+4: anyone(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)1R =shakespeare(the*)2L this(the*)1R =with*(works)1L 
+5: and*(anyone)1L =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
+6: =almost*(and*)1L 
 iFixUp: case2
 1: project(project)1X
 2: complete(project)1L william(project)2R 
@@ -230,6 +353,11 @@ no
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
 4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R =shakespeare(the*)2L this(the*)1R =with*(works)1L 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
+4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R =shakespeare(the*)2L this(the*)1R =with*(works)1L 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =use*(this)1R 
 
 i: 30
 restrictions
@@ -238,9 +366,20 @@ restrictions
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
 4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R shakespeare(the*)2L this(the*)1R =with*(works)1L 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =restrictions*(shakespeare)1L =use*(this)1R 
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
+4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R shakespeare(the*)2L this(the*)1R =with*(works)1L 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =restrictions*(shakespeare)1L =use*(this)1R 
 
 i: 31
 whatsoever
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
+4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R shakespeare(the*)2L this(the*)1R =with*(works)1L 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =restrictions*(shakespeare)1L use*(this)1R 
+6: =whatsoever*(use*)1R 
 iFixUp: case 3
 1: project(project)1X
 2: complete(project)1L william(project)2R 
@@ -255,339 +394,561 @@ you
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
 4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
-
-i: 33
-may
-iFixUp: case1
 1: project(project)1X
 2: complete(project)1L william(project)2R 
 3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R =is*(no)1L =of*(no)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+
+i: 33
+may
+1: project(project)1X
+2: complete(project)1L william(project)2R 
+3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
+4: and(anywhere*)1L by(anywhere*)1R ebook(gutenberg*)2L no(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R is*(no)1L =of*(no)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =may*(is*)1R 
+iFixUp: case1
+iFixUp: case1
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L =cost*(ebook)1L =for*(ebook)1R is(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =may*(is)1R 
 
 i: 34
 copy
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost*(ebook)1L =for*(ebook)1R is(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost*)1L =may*(is)1R 
 iFixUp: case1
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L by(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L =for(ebook*)1R is(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =may*(is)1R 
 
 i: 35
 it
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L =for(ebook*)1R is(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L may*(is)1R 
+7: =it*(may*)1L 
 iFixUp: case 3
 iFixUp: case 3.5
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L by(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L =for(ebook*)1R it(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =is*(it)1L =may*(it)1R 
 
 i: 36
 give
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L by(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L for(ebook*)1R it(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R 
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L for(ebook*)1R it(no*)1L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R 
 
 i: 37
 it
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L by(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L for(ebook*)1R it(no*)2L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R 
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(by)1L cost(ebook*)1L for(ebook*)1R it(no*)2L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R 
 
 i: 38
 away
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L by(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R at*(by)1L cost(ebook*)1L for(ebook*)1R it(no*)2L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =away*(at*)1R =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R 
 iFixUp: case2
 iFixUp: case 2.5
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)2L =of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R 
 
 i: 39
 or
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)2L of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)2L of(no*)3R =restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
 
 i: 40
 reuse
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R shakespeare(the*)2L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)2L of(no*)3R restrictions*(shakespeare)1L =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =reuse*(restrictions*)1R 
 iFixUp: case2
 iFixUp: case 2.5
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse(the*)1L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)2L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
 
 i: 41
 it
 1: project(project)1X
-2: complete(project)1L william(project)2R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(william)3L works(william)1R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse(the*)1L use(the*)1R =with*(works)1L =you*(works)1R 
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R =this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L use(the*)1R =with*(works)1L =you*(works)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R =this*(use)1L =whatsoever*(use)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
 
 i: 42
 under
+1: project(project)1X
+2: complete*(project)1L william(project)2R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(william)3L works(william)1R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L use(the*)1R =with*(works)1L =you*(works)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R this*(use)1L =whatsoever*(use)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =under*(this*)1R 
 iFixUp: case2
 iFixUp: case 2.5
 iFixUp: case1
 1: project(project)1X
-2: complete(project)1L use(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(use)3L william*(use)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse(the*)1L this(the*)1R =whatsoever(william*)1L works(william*)1R 
+2: complete*(project)1L use(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(use)3L william*(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L this(the*)1R =whatsoever(william*)1L works(william*)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
 
 i: 43
 the
 1: project(project)1X
-2: complete(project)1L use(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the*(use)4L william*(use)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse(the*)1L this(the*)1R =whatsoever(william*)1L works(william*)1R 
+2: complete*(project)1L use(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(use)4L william*(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L this(the*)1R =whatsoever(william*)1L works(william*)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
+1: project(project)1X
+2: complete*(project)1L use(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(use)4L william*(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L this(the*)1R =whatsoever(william*)1L works(william*)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L =shakespeare*(reuse)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R 
 
 i: 44
 terms
+1: project(project)1X
+2: complete*(project)1L use(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the*(use)4L william*(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse(the*)1L this(the*)1R =whatsoever(william*)1L works(william*)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions*(reuse)1L shakespeare*(reuse)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare*)1R 
 iFixUp: case1
 iFixUp: case1
 1: project(project)1X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the(use*)4L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)4L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)3R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
 
 i: 45
 of
 1: project(project)1X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the(use*)4L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)4L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
+1: project(project)1X
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)4L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
 
 i: 46
 the
 1: project(project)1X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
+1: project(project)1X
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
 
 i: 47
 project
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)1R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
+1: project(project)2X
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)1R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
 
 i: 48
 gutenberg
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)2R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
+1: project(project)2X
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)2R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
 5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is*(it)1L =may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
 
 i: 49
 license
+1: project(project)2X
+2: complete*(project)1L use*(project)1R 
+3: anywhere(complete*)1L gutenberg(complete*)2R the(use*)5L william(use*)2R 
+4: and(anywhere)1L away(anywhere)1R ebook*(gutenberg)2L no*(gutenberg)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R =is*(it)1L may*(it)1R =or*(of)1R =terms*(shakespeare)1R 
+7: =license*(may*)1L 
+iFixUp: case1
+iFixUp: case1
 iFixUp: case1
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R =is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
 7: =license*(may)1L 
 
 i: 50
 included
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)1L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 51
 with
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)1R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 52
 this
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)2L no*(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)2L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 53
 ebook
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)1R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 54
 or
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L of(no*)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)2R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =or*(of)2R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 55
 online
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L of(no)4R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R or*(of)2R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L =online*(or*)1L 
 iFixUp: case 3
 iFixUp: case 3.5
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)1L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 56
 at
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L =you*(works)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R 
 7: =included*(is)1L =license*(may)1L 
 
 i: 57
 wwwgutenbergorg
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with*(works)2L you*(works)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you*)1L 
+7: =included*(is)1L =license*(may)1L 
 iFixUp: case1
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works*(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)2R =whatsoever(william)1L works*(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 58
 this
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)1L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 59
 is
 1: project(project)2X
-2: complete(project)1L use*(project)1R 
-3: anywhere*(complete)1L gutenberg*(complete)2R the(use*)5L william(use*)2R 
-4: and(anywhere*)1L away(anywhere*)1R ebook*(gutenberg*)3L no*(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =copy*(cost)1L =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: =almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =copy*(cost)1L =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 60
 a
-iFixUp: case1
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost*(and)1L =anyone*(and)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost*)1L =copy*(cost)1L =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =included*(is)1L =license*(may)1L 
 iFixUp: case1
 1: project(project)2X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg(complete*)2R the(use*)5L william(use*)2R 
-4: and*(anywhere)1L away(anywhere)1R ebook*(gutenberg)3L no*(gutenberg)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R cost(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =copy*(cost)1L =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 61
 copyrighted
+1: project(project)2X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R cost(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L copy*(cost)1L =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyrighted*(copy*)1R =included*(is)1L =license*(may)1L 
 iFixUp: case2
 iFixUp: case 2.5
 1: project(project)2X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg(complete*)2R the(use*)5L william(use*)2R 
-4: and*(anywhere)1L away(anywhere)1R ebook*(gutenberg)3L no*(gutenberg)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 62
 project
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg(complete*)2R the(use*)5L william(use*)2R 
-4: and*(anywhere)1L away(anywhere)1R ebook*(gutenberg)3L no*(gutenberg)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)2R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 63
 gutenberg
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg(complete*)3R the(use*)5L william(use*)2R 
-4: and*(anywhere)1L away(anywhere)1R ebook*(gutenberg)3L no*(gutenberg)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)3L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 64
 ebook
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg(complete*)3R the(use*)5L william(use*)2R 
-4: and*(anywhere)1L away(anywhere)1R ebook*(gutenberg)4L no*(gutenberg)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
-5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook*)1L for(ebook*)1R it*(no*)3L online(no*)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =included*(is)1L =license*(may)1L 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =copy*(copyrighted)1L =cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
 7: =included*(is)1L =license*(may)1L 
 
 i: 65
 details
-iFixUp: case1
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =copy*(copyrighted)1L cost*(copyrighted)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =details*(cost*)1R =included*(is)1L =license*(may)1L 
 iFixUp: case1
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)5L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
 4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at*(away)2L =by*(away)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =copy(copyrighted*)1L cost(copyrighted*)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -595,10 +956,17 @@ iFixUp: case1
 
 i: 66
 below
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at*(away)2L by*(away)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by*)1L =copy(copyrighted*)1L cost(copyrighted*)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =details*(cost)1R =included*(is)1L =license*(may)1L 
 iFixUp: case1
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)5L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L =or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -606,10 +974,17 @@ iFixUp: case1
 
 i: 67
 please
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =give*(for)1R is(it*)2L may(it*)1R =of*(online)4L or*(online)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =details*(cost)1R =included*(is)1L =license*(may)1L =please*(or*)1R 
 iFixUp: case1
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)5L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -618,8 +993,15 @@ iFixUp: case1
 i: 68
 follow
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)5L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =details*(cost)1R =included*(is)1L =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)5L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -628,8 +1010,15 @@ follow
 i: 69
 the
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =details*(cost)1R =included*(is)1L =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L =copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -638,8 +1027,15 @@ the
 i: 70
 copyright
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =included*(is)1L =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L =give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -647,10 +1043,17 @@ copyright
 
 i: 71
 guidelines
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow*(for)1L give*(for)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =guidelines*(give*)1R =included*(is)1L =license*(may)1L =please*(or)1R 
 iFixUp: case1
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow(for*)1L give(for*)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -658,10 +1061,18 @@ iFixUp: case1
 
 i: 72
 in
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow(for*)1L give(for*)1R is(it*)2L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =guidelines*(give)1R included*(is)1L =license*(may)1L =please*(or)1R 
+8: =in*(included*)1L 
 iFixUp: case2
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)3R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -670,8 +1081,15 @@ iFixUp: case2
 i: 73
 this
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)4R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)4R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R =follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -680,8 +1098,15 @@ this
 i: 74
 file
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)4R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)4R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =under*(this)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -689,11 +1114,18 @@ file
 
 i: 75
 title
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L this(the)4R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R under*(this)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =title*(under*)1L =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
 iFixUp: case 3
 iFixUp: case 3.5
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)6L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)6L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -702,8 +1134,15 @@ iFixUp: case 3.5
 i: 76
 the
 1: project(project)3X
-2: complete*(project)1L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)2R 
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)1L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -712,8 +1151,15 @@ the
 i: 77
 complete
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)2R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)1R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)1R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -722,8 +1168,15 @@ complete
 i: 78
 works
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)2R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)4L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -732,8 +1185,15 @@ works
 i: 79
 of
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)2R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)2R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -742,8 +1202,15 @@ of
 i: 80
 william
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)3R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)3R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)3R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)2R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -752,8 +1219,15 @@ william
 i: 81
 shakespeare
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)3R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)3R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)3R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)3R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R =at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)3R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -762,8 +1236,15 @@ shakespeare
 i: 82
 author
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)3R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)3R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)3R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)3R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)3R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -772,8 +1253,15 @@ author
 i: 83
 william
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)3R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)3R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -782,8 +1270,15 @@ william
 i: 84
 shakespeare
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =please*(or)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -791,10 +1286,18 @@ shakespeare
 
 i: 85
 posting
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L or(online*)2R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L please*(or)1R 
+8: =posting*(please*)1R 
 iFixUp: case 3
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -802,11 +1305,19 @@ iFixUp: case 3
 
 i: 86
 date
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L cost(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R details*(cost)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =or*(please)2L =posting*(please)1R 
+8: =date*(details*)1L 
 iFixUp: case 3
 iFixUp: case 3.5
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -815,8 +1326,15 @@ iFixUp: case 3.5
 i: 87
 september
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =or*(please)2L =posting*(please)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)4L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -825,8 +1343,15 @@ september
 i: 88
 ebook
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =or*(please)2L =posting*(please)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R =restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -835,8 +1360,15 @@ ebook
 i: 89
 release
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =or*(please)2L =posting*(please)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)1R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -845,8 +1377,15 @@ release
 i: 90
 date
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R =license*(may)1L =or*(please)2L =posting*(please)1R 
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -854,10 +1393,18 @@ date
 
 i: 91
 january
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R included(it*)1L may(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R license*(may)1L =or*(please)2L =posting*(please)1R 
+8: =january*(license*)1L 
 iFixUp: case2
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
 4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
 5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
 6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R included(it*)1L license(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
@@ -865,103 +1412,162 @@ iFixUp: case2
 
 i: 92
 language
+1: project(project)3X
+2: complete(project)2L use(project)1R 
+3: anywhere(complete)1L gutenberg*(complete)3R the(use)7L william(use)4R 
+4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it*(no)3L online*(no)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R included(it*)1L license(it*)1R =of(online*)5L please(online*)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R january*(license)1L =may*(license)1R =or*(please)2L =posting*(please)1R 
+8: =language*(january*)1R 
+iFixUp: case 3
 iFixUp: case1
 iFixUp: case1
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)5L please(online)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R 
-8: =language*(january)1R 
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R the(use)7L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)5L please(online)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =file*(follow)1L =guidelines*(give)1R =language*(january)1R 
 
 i: 93
 english
+1: project(project)3X
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R the(use)7L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)5L please(online)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R follow(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R file*(follow)1L =guidelines*(give)1R =language*(january)1R 
+8: =english*(file*)1L 
 iFixUp: case2
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)5L please(online)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R 
-8: =language*(january)1R 
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R the(use)7L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)5L please(online)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =september*(shakespeare)1L =terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 94
 start
+1: project(project)3X
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R the(use)7L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)5L please(online)1R restrictions(reuse*)1L shakespeare(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =september*(shakespeare)1L terms*(shakespeare)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R =start*(terms*)1L 
+iFixUp: case2
+iFixUp: case 2.5
 iFixUp: case1
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)5L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)5L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)4L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 95
 of
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)4L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)6L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)4L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
+1: project(project)3X
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)4L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 96
 this
 1: project(project)3X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)5L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)6L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
+1: project(project)3X
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 97
 project
 1: project(project)4X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)3R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)5L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)6L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
+1: project(project)4X
+2: gutenberg(project)3L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 98
 gutenberg
 1: project(project)4X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)4R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)5L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)5L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)6L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)4L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
+1: project(project)4X
+2: gutenberg(project)4L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)5R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 99
 ebook
 1: project(project)4X
-2: complete*(project)2L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)4R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)6L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)5L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)6L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)4L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)6R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
+1: project(project)4X
+2: gutenberg(project)4L use(project)1R 
+3: complete*(gutenberg)2L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)6R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
 
 i: 100
 complete
 1: project(project)4X
-2: complete*(project)3L use*(project)1R 
-3: anywhere(complete*)1L gutenberg*(complete*)4R the(use*)7L william(use*)4R 
-4: and*(anywhere)1L away*(anywhere)1R ebook(gutenberg*)6L no*(gutenberg*)2R reuse*(the)1L title(the)1R =whatsoever(william)1L works*(william)2R 
-5: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copyrighted*(ebook)1L for*(ebook)1R it(no*)3L online(no*)1R restrictions(reuse*)1L shakespeare*(reuse*)4R =this*(title)5L =under*(title)1R =with(works*)2L you(works*)1R 
-6: =a*(almost)1L =author*(at)1R =below*(by)1L copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R included(it)1L license*(it)1R =of(online)6L please(online)1R =release*(restrictions)1L =september(shakespeare*)1L terms(shakespeare*)1R =wwwgutenbergorg*(you)1L 
-7: =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =start*(terms)1L 
-8: =language*(january)1R 
+2: gutenberg(project)4L use(project)1R 
+3: complete*(gutenberg)3L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)6R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 
+1: project(project)4X
+2: gutenberg(project)4L use(project)1R 
+3: complete*(gutenberg)3L no*(gutenberg)2R shakespeare(use)4L william(use)4R 
+4: anywhere(complete*)1L ebook(complete*)6R it(no*)3L online(no*)1R reuse*(shakespeare)1L the*(shakespeare)7R =whatsoever(william)1L works*(william)2R 
+5: and*(anywhere)1L away*(anywhere)1R copyrighted*(ebook)1L for*(ebook)1R included(it)1L license*(it)1R =of(online)6L please(online)1R restrictions(reuse*)1L =september(reuse*)1R terms(the*)1L title(the*)1R =with(works*)2L you(works*)1R 
+6: almost(and*)1L =anyone(and*)1R at(away*)2L by(away*)1R copy(copyrighted*)1L date(copyrighted*)2R file(for*)1L give(for*)1R =in*(included)1L =is*(included)2R january(license*)1L =may(license*)1R =or*(please)2L =posting*(please)1R =release*(restrictions)1L =start*(terms)1L =this*(title)5L =under*(title)1R =wwwgutenbergorg*(you)1L 
+7: =a*(almost)1L =author*(at)1R =below*(by)1L =copyright*(copy)1R =cost*(date)1L =details*(date)1R =english*(file)1L =follow*(file)1R =guidelines*(give)1R =language*(january)1R 

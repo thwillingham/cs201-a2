@@ -120,7 +120,10 @@ public class Rbt extends Bst {
             size++;
         } else {
             Node curr = ((Node)super.insert(n));
-            insertionFixUp(curr);
+            print();
+            if (curr.getFrequency() == 1) {
+                insertionFixUp(curr);
+            }
         }
     }
 
@@ -152,10 +155,10 @@ public class Rbt extends Bst {
     }
 
     public void insertionFixUp(Node n) {
-        if (n==null || n.getFrequency() > 1) {
+        /*if (n==null || n.getFrequency() > 1) {
             ((Node) rootNode).setColorBlack();
             return;
-        }
+        }*/
 
         Node curr = n;
         curr.setColorRed();
