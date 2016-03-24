@@ -37,19 +37,19 @@ public class Trees {
         while (!commands.isEmpty()) {
             String temp = commands.remove();
             if (temp.equals("i")) {
-                System.out.println("#inserting");
+                //System.out.println("#inserting");
                 tree.insert(commands.remove());
             } else if (temp.equals("d")) {
-                System.out.println("#deleting");
+                //System.out.println("#deleting");
                 tree.delete(commands.remove());
             } else if (temp.equals("f")) {
-                System.out.println("#finding");
+                //System.out.println("#finding");
                 tree.find(commands.remove());
             } else if (temp.equals("s")) {
-                System.out.println("#showing");
+                //System.out.println("#showing");
                 tree.print();
             } else if (temp.equals("r")) {
-                System.out.println("#reporting");
+                //System.out.println("#reporting");
                 tree.report();
             } else {
                 System.out.println("Error: invalid command order");
