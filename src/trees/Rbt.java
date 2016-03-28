@@ -1,7 +1,9 @@
 package trees;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import helpers.Queue;
+
+//import java.util.LinkedList;
+//import java.util.Queue;
 import java.awt.Color;
 
 
@@ -302,7 +304,7 @@ public class Rbt extends Bst {
 
     @Override
     public void print() {
-        Queue<Node> q = new LinkedList<Node>();
+        Queue q = new Queue();
         if (rootNode == null) { return; }
         q.add((Node)rootNode);
         String stringToPrint = "";
@@ -312,7 +314,7 @@ public class Rbt extends Bst {
             int count = q.size();
             System.out.print(lineNumber + ": ");
             while (count > 0) {
-                Node curr = q.remove();
+                Node curr = (Node) q.remove();
                 if (curr.getLeftChild() == null && curr.getRightChild() == null) {
                     stringToPrint = stringToPrint + "=";
                 }
