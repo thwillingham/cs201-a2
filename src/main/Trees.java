@@ -59,7 +59,7 @@ public class Trees {
                 System.exit(0);
             }
         }
-
+        System.exit(0);
 
     }
 
