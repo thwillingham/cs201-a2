@@ -1,9 +1,10 @@
 package helpers;
 
+import helpers.Queue;
 import java.io.*;
 import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
+//import java.util.List;
+//import java.util.ArrayList;
 
 public class Importer {
     String fname = "";
@@ -14,37 +15,29 @@ public class Importer {
         type = t;
     }
 
-    public void process() {
-        String[] tokens = getTokens();
-        if (type == false) { // tree contents
-            // remove non alpha characters
-            for (String s : tokens) {
-                
-                System.out.println("scan: " + s);
-            }
-        } else {
-        }
-    }
-
-    public String[] getTokens() {
+    public Queue getTokens() {
         String temp = "";
-        List<String> temps = new ArrayList<String>();
+        Queue temps = new Queue();
         try {
             s = new Scanner(new BufferedReader(new FileReader(fname)));
             while (s.hasNext()) {
-                temp = s.next().replaceAll("[^a-zA-Z]", "").toLowerCase();
+                temp = cleanForTree(s.next());
                 if (temp != null && !temp.isEmpty()) {
                     temps.add(temp);
                 }
             }
         } catch (FileNotFoundException ex) {
-            System.out.println("Error: file, " + fname + ", not found");
+            System.err.printf("Error: file, " + fname + ", not found");
             System.exit(0);
         } finally {
             if (s != null) {
                 s.close();
             }
         }
-        return temps.toArray(new String[0]);
+        return temps;
+    }
+
+    public String cleanForTree(String s) {
+        return s.replaceAll("[^a-zA-Z]", "").toLowerCase();
     }
 }
