@@ -38,7 +38,7 @@ public class Queue {
     public Queue() {
     }
 
-    public void push(Object o) {
+    public void add(Object o) {
         Node n = new Node(o);
         if (size == 0) {
             this.head = n;
@@ -58,7 +58,7 @@ public class Queue {
         }
     }
 
-    public Object pop() {
+    public Object remove() {
         if (size > 0) {
            size--;
            Object o = this.head.getValue();
@@ -73,6 +73,18 @@ public class Queue {
         } else {
             return null;
         }
+    }
+
+    public boolean isEmpty() {
+        if (this.size == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int size() {
+        return this.size;
     }
 
 }
