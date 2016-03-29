@@ -255,6 +255,7 @@ public class Bst {
         Node curr = this.getNode(s);
         if (curr == null) {
             size++;
+            System.err.printf("Error: '" + s + "' does not exist in tree.\n");
             return;
         } else if (!curr.isLeaf()) {
             if (curr.getFrequency() > 1) {
@@ -284,6 +285,7 @@ public class Bst {
 
     public void print() {
         Queue q = new Queue();
+        Queue p = new Queue();
         if (rootNode == null) { return; }
         q.add(rootNode);
         String stringToPrint = "";
@@ -291,11 +293,13 @@ public class Bst {
         int lineNumber = 1;
         while (!q.isEmpty()) {
             int count = q.size();
-            System.out.print(lineNumber + ": ");
+            //System.out.print(lineNumber + ": ");
+            p.add(String.valueOf(lineNumber) + ": ");
             while (count > 0) {
                 Node curr = (Node) q.remove();
                 if (curr.getLeftChild() == null && curr.getRightChild() == null) {
                     stringToPrint = stringToPrint + "=";
+                    p.add("=");
                 }
                 if (rootNode == curr) {
                 	parentValue = rootNode.getValue();
@@ -303,14 +307,21 @@ public class Bst {
                 	parentValue = curr.getParent().getValue();
                 }
                 stringToPrint = stringToPrint + curr.getValue() + "(" + parentValue + ")" + curr.getFrequency();
+                p.add(curr.getValue() + "(" + parentValue + ")" + curr.getFrequency());
                 if (curr == rootNode) {
                     stringToPrint = stringToPrint + "X";
+                    p.add("X");
                 } else if (curr.getParent().getLeftChild() == curr) {
                     stringToPrint = stringToPrint + "L ";
+                    p.add("L ");
                 } else if (curr.getParent().getRightChild() == curr) {
                     stringToPrint = stringToPrint + "R ";
+                    p.add("R ");
                 }
-                System.out.print(stringToPrint);
+                //System.out.print(stringToPrint);
+                //while (!p.isEmpty()) {
+                   // System.out.print((String) p.remove());
+                //}
                 if (curr.getLeftChild() != null) {
                     q.add(curr.getLeftChild());
                 }
@@ -320,7 +331,11 @@ public class Bst {
                 count--;
                 stringToPrint = "";
             }
-            System.out.println("");
+            p.add("\n");
+            while (!p.isEmpty()) {
+                System.out.print((String) p.remove());
+            }
+            //System.out.println("");
             lineNumber += 1;
         }
         return;

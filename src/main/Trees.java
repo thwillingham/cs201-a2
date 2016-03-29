@@ -1,3 +1,10 @@
+/**
+ *  Project: Assignment 2
+ *  Professor: Dr. John Lusth
+ *  @author Thomas Willingham <twillingham@crimson.ua.edu>
+ *
+ */
+
 package main;
 
 import helpers.Queue;
@@ -10,7 +17,7 @@ public class Trees {
         Bst tree = null;
         boolean treeType = false;
         if (args.length != 3) {
-            System.out.println("Error: invalid number of parameters");
+            System.err.printf("Error: invalid number of parameters");
             System.exit(0);
         }
         
@@ -21,7 +28,7 @@ public class Trees {
             tree = new Rbt();
             treeType = true;
         } else {
-            System.out.println("Error: invalid tree type");
+            System.err.printf("Error: invalid tree type");
             System.exit(0);
         }
         String contentsFile = args[1];
