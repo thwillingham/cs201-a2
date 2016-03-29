@@ -162,7 +162,7 @@ public class Rbt extends Bst {
                 }
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getGrandparent().setColorRed();
-                ((Node) curr.getGrandparent()).rotateRight();
+                curr.getGrandparent().rotateRight();
             } else if (curr.getParent() == curr.getGrandparent().getRightChild()) {
                 //println("iFixUp: case 3");
                 if (curr == curr.getParent().getLeftChild()) {
@@ -195,7 +195,7 @@ public class Rbt extends Bst {
             Node predecessor = ((Node) curr.getPredecessor());
             curr.setValue(predecessor.getValue());
             curr.setFrequency(predecessor.getFrequency());
-            curr = (Node) predecessor;
+            curr = predecessor;
         }
         Node move = null;
         if (curr.getLeftChild() == null) {

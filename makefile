@@ -7,6 +7,9 @@ test :
 	@echo testing RBT
 	java -classpath classfiles main.Trees -2 ./testFiles/cor1 ./testFiles/com1
 
+allwarnings :
+	javac -Xlint -d classfiles -sourcepath src src/main/Trees.java
+
 clean : 
 	@echo cleaning...
 	rm -rfv ./classfiles/*
