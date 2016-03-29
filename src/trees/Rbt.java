@@ -146,23 +146,18 @@ public class Rbt extends Bst {
                 curr.getUncle().setColorBlack();
                 curr.getGrandparent().setColorRed();
                 insertionFixUp(curr.getGrandparent());
-                //println("iFixUp: case1");
             } else if (curr.getParent() == curr.getGrandparent().getLeftChild()) {
-                //println("iFixUp: case2");
                 if (curr == curr.getParent().getRightChild()) {
                     curr = ((Node)curr.getParent());
                     curr.rotateLeft();
-                    //println("iFixUp: case 2.5");
                 }
                 ((Node)curr.getParent()).setColorBlack();
                 curr.getGrandparent().setColorRed();
                 curr.getGrandparent().rotateRight();
             } else if (curr.getParent() == curr.getGrandparent().getRightChild()) {
-                //println("iFixUp: case 3");
                 if (curr == curr.getParent().getLeftChild()) {
                     curr = ((Node)curr.getParent());
                     curr.rotateRight();
-                    //println("iFixUp: case 3.5");
                 }
                 ((Node)curr.getParent()).setColorBlack();
                 if (curr.getGrandparent() != null) {
@@ -280,16 +275,14 @@ public class Rbt extends Bst {
         Queue p = new Queue();
         if (rootNode == null) { return; }
         q.add((Node)rootNode);
-        String stringToPrint = "";
         Node parent = null;
         int lineNumber = 1;
         while (!q.isEmpty()) {
             int count = q.size();
-            System.out.print(lineNumber + ": ");
-            while (count > 0) {
+            p.add(String.valueOf(lineNumber) + ": ");
+            while (count > 0) { //process all values at current level
                 Node curr = (Node) q.remove();
                 if (curr.getLeftChild() == null && curr.getRightChild() == null) {
-                    stringToPrint = stringToPrint + "=";
                     p.add("=");
                 }
                 if (rootNode == curr) {
@@ -297,31 +290,22 @@ public class Rbt extends Bst {
                 } else {
                 	parent = ((Node) curr.getParent());
                 }
-                stringToPrint = stringToPrint + curr.getValue();
                 p.add((String) curr.getValue());
                 if (curr.isRed()) {
-                    stringToPrint = stringToPrint + "*";
                     p.add("*");
                 }
-                stringToPrint = stringToPrint + "(" + parent.getValue();
                 p.add("(" + ((String) parent.getValue()));
                 if (parent.isRed()) {
-                    stringToPrint = stringToPrint + "*";
                     p.add("*");
                 }
-                stringToPrint = stringToPrint + ")" + curr.getFrequency();
                 p.add(")" + String.valueOf(curr.getFrequency()));
                 if (curr == rootNode) {
-                    stringToPrint = stringToPrint + "X";
                     p.add("X");
                 } else if (curr.getParent().getLeftChild() == curr) {
-                    stringToPrint = stringToPrint + "L ";
                     p.add("L ");
                 } else if (curr.getParent().getRightChild() == curr) {
-                    stringToPrint = stringToPrint + "R ";
                     p.add("R ");
                 }
-                //System.out.print(stringToPrint);
                 if (curr.getLeftChild() != null) {
                     q.add((Node)curr.getLeftChild());
                 }
@@ -329,9 +313,7 @@ public class Rbt extends Bst {
                     q.add((Node)curr.getRightChild());
                 }
                 count--;
-                stringToPrint = "";
             }
-            //System.out.println("");
             p.add("\n");
             while (!p.isEmpty()) {
                 System.out.print(String.valueOf(p.remove()));
