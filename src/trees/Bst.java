@@ -213,12 +213,6 @@ public class Bst {
         }
     }
 
-    public void insert(String[] c) {
-        for (String s : c) {
-            insert(s);
-        }
-    }
-
     public void insert(String s) {
         insert(new Node(s));
         return;

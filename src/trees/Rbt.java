@@ -125,20 +125,6 @@ public class Rbt extends Bst {
         }
     }
 
-    @Override
-    public void insert(String[] c) {
-        //int i = 0;
-        for (String s : c) {
-            //println("");
-            //println("i: " + String.valueOf(i));
-            //println(s);
-            this.insert(s);
-            //print();
-            //i++;
-            //if (i>100) {System.exit(0);}
-        }
-    }
-
     public boolean isNotLinear(Node curr) {
     	if (curr.getParent() == null || curr.getGrandparent() == null) {
     		return false;
@@ -152,7 +138,7 @@ public class Rbt extends Bst {
     	return lin;
     }
 
-    public void insertionFixUp(Node n) {
+    public void insertionFixUp(Node n) { //adapted from pseudocode on beastie http://beastie.cs.ua.edu/red-black/rbinsfix.html
         /*if (n==null || n.getFrequency() > 1) {
             ((Node) rootNode).setColorBlack();
             return;
@@ -244,7 +230,7 @@ public class Rbt extends Bst {
         }
     }
 
-    public void deletionFixUp(Node x) {
+    public void deletionFixUp(Node x) { // adapted from pseudocode on wikipedia, https://en.wikipedia.org/wiki/Red–black_tree
         while (x != rootNode && !(x.isRed())) {
             if (x.getParent().getLeftChild() == x) {
                 Node sibling = x.getSibling();
