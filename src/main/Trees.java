@@ -4,13 +4,11 @@ import helpers.Queue;
 import trees.Bst;
 import trees.Rbt;
 import helpers.Importer;
-//import java.util.Arrays;
-//import java.util.Queue;
-//import java.util.LinkedList;
 
 public class Trees {
     public static void main(String[] args) {
         Bst tree = null;
+        boolean treeType = false;
         if (args.length != 3) {
             System.out.println("Error: invalid number of parameters");
             System.exit(0);
@@ -18,8 +16,10 @@ public class Trees {
         
         if (args[0].equals("-1")) {
             tree = new Bst();
+            treeType = false;
         } else if (args[0].equals("-2")) {
             tree = new Rbt();
+            treeType = true;
         } else {
             System.out.println("Error: invalid tree type");
             System.exit(0);
@@ -27,15 +27,16 @@ public class Trees {
         String contentsFile = args[1];
         String commandsFile = args[2];
 
-        Importer i = new Importer(contentsFile, false);
-        Queue contents = i.getTokens();
+        Importer i = new Importer(contentsFile, false, treeType);
+        tree = i.importToTree();
+        //Queue contents = i.getTokens();
         //tree.insert(contents);
-        while (!contents.isEmpty()) {
-            tree.insert((String) contents.remove());
-        }
+        //while (!contents.isEmpty()) {
+          //  tree.insert((String) contents.remove());
+        //}
 
 
-        Importer j = new Importer(commandsFile, true);
+        Importer j = new Importer(commandsFile, true, treeType);
         Queue commands = j.getTokens();
         while (!commands.isEmpty()) {
             String temp = (String) commands.remove();

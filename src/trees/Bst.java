@@ -1,9 +1,6 @@
 package trees;
 
-
 import helpers.Queue;
-//import java.util.LinkedList;
-//import java.util.Queue;
 
 public class Bst {
     protected Node rootNode;

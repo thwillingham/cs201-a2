@@ -1,43 +1,40 @@
 package trees;
 
 import helpers.Queue;
-
-//import java.util.LinkedList;
-//import java.util.Queue;
-import java.awt.Color;
+//import java.awt.Color;
 
 
 
 public class Rbt extends Bst {
     protected class Node extends Bst.Node {
-        Color color = Color.red;
+        boolean color = true;
 
         public Node(String s) {
             super(s);
         }
 
-        public Color getColor() {
+        public boolean getColor() {
             return this.color;
         }
 
-        public void setColor(Color c) {
+        public void setColor(boolean c) {
             this.color = c;
         }
 
         public boolean isRed() {
-            return (this.color == Color.red);
+            return (this.color == true);
         }
 
         public void setColorRed() {
-            this.color = Color.red;
+            this.color = true;
         }
 
         public boolean isBlack() {
-            return (this.color == Color.black);
+            return (this.color == false);
         }
 
         public void setColorBlack() {
-            this.color = Color.black;
+            this.color = false;
         }
 
         public Node getGrandparent() {
