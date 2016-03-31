@@ -98,6 +98,35 @@ public class Rbt extends Bst {
           prev.setRightChild(curr);
         }
 
+        public boolean childrenAreBlack() {
+          boolean left = false;
+          boolean right = false;
+          if (this.hasNoChildren() == true) {
+              return true;
+          }
+          if (this.getLeftChild() != null) {
+              if (((Node) this.getLeftChild()).isBlack()) {
+                  left = true;
+              }
+          } else {
+              left = true;
+          }
+          if (this.getRightChild() != null) {
+              if (((Node) this.getRightChild()).isBlack()) {
+                  right = true;
+              }
+          } else {
+              right = true;
+          }
+          if (left && right) {
+              return true;
+          } else {
+              return false;
+          }
+
+        }
+
+
     }
 
     public Rbt() {
@@ -171,6 +200,7 @@ public class Rbt extends Bst {
 
     @Override
     public void delete(String s) {
+        System.out.println(s);
         size--;
         Node curr = (Node) getNode(s);
         if (curr == null) {
@@ -202,12 +232,14 @@ public class Rbt extends Bst {
                 curr.getParent().setRightChild(move);
             }
             if (curr.isBlack()) {
+                System.out.println("here");
                 deletionFixUp(move);
             }
         } else if (curr == rootNode) {
             rootNode = null;
         } else {
             if (curr.isBlack()) {
+                System.out.println("here1");
                 deletionFixUp(curr);
             }
            curr.prune();
@@ -215,16 +247,19 @@ public class Rbt extends Bst {
     }
 
     public void deletionFixUp(Node x) { // adapted from pseudocode on wikipedia, https://en.wikipedia.org/wiki/Red–black_tree
+        System.out.println(x.getValue());
         while (x != rootNode && !(x.isRed())) {
             if (x.getParent().getLeftChild() == x) {
-                Node sibling = x.getSibling();
+                //Node sibling = x.getSibling();
+                Node sibling = (Node) x.getParent().getRightChild();
                 if (sibling.isRed()) {
+                    System.out.println("here");
                     sibling.setColorBlack();
                     ((Node) x.getParent()).setColorRed();
                     ((Node) x.getParent()).rotateLeft();
                     sibling = (Node) x.getParent().getRightChild();
                 }
-                if (((Node) sibling.getLeftChild()).isBlack() && ((Node) sibling.getRightChild()).isBlack()) {
+                if (sibling.childrenAreBlack()) {
                     sibling.setColorRed();
                     x = ((Node) x.getParent());
                 } else {
@@ -248,7 +283,7 @@ public class Rbt extends Bst {
                     ((Node) x.getParent()).rotateRight();
                     sibling = (Node) x.getParent().getLeftChild();
                 }
-                if (!sibling.hasBothChildren() || (((Node) sibling.getLeftChild()).isBlack() && ((Node)sibling.getRightChild()).isBlack())) {
+                if (sibling.childrenAreBlack()) {
                     sibling.setColorRed();
                     x = ((Node) x.getParent());
                 } else {

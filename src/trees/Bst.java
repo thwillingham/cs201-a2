@@ -112,11 +112,19 @@ public class Bst {
         }
 
         public boolean hasBothChildren() {
-            if (this.getLeftChild() != null && this.getLeftChild() != null) {
+            if (this.getLeftChild() != null && this.getRightChild() != null) {
                 return true;
             }
             return false;
         }
+
+        public boolean hasNoChildren() {
+          if (this.getLeftChild() == null && this.getRightChild() == null) {
+            return true;
+          }
+          return false;
+        }
+
 
     }
 
