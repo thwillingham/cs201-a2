@@ -200,7 +200,6 @@ public class Rbt extends Bst {
 
     @Override
     public void delete(String s) {
-        System.out.println(s);
         size--;
         Node curr = (Node) getNode(s);
         if (curr == null) {
@@ -232,14 +231,12 @@ public class Rbt extends Bst {
                 curr.getParent().setRightChild(move);
             }
             if (curr.isBlack()) {
-                System.out.println("here");
                 deletionFixUp(move);
             }
         } else if (curr == rootNode) {
             rootNode = null;
         } else {
             if (curr.isBlack()) {
-                System.out.println("here1");
                 deletionFixUp(curr);
             }
            curr.prune();
@@ -247,13 +244,11 @@ public class Rbt extends Bst {
     }
 
     public void deletionFixUp(Node x) { // adapted from pseudocode on wikipedia, https://en.wikipedia.org/wiki/Red–black_tree
-        System.out.println(x.getValue());
         while (x != rootNode && !(x.isRed())) {
             if (x.getParent().getLeftChild() == x) {
                 //Node sibling = x.getSibling();
                 Node sibling = (Node) x.getParent().getRightChild();
                 if (sibling.isRed()) {
-                    System.out.println("here");
                     sibling.setColorBlack();
                     ((Node) x.getParent()).setColorRed();
                     ((Node) x.getParent()).rotateLeft();

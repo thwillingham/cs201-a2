@@ -272,9 +272,11 @@ public class Bst {
                 return;
             }
             Node predecessor = curr.getPredecessor();
-            curr.setValue(predecessor.getValue());
-            curr.setFrequency(predecessor.getFrequency());
-            curr = predecessor;
+            if (predecessor != null) {
+                curr.setValue(predecessor.getValue());
+                curr.setFrequency(predecessor.getFrequency());
+                curr = predecessor;
+            }
         }
         Node move = null;
         if (curr.getLeftChild() == null) {

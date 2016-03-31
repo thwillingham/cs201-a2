@@ -17,10 +17,10 @@ public class Trees {
         Bst tree = null;
         boolean treeType = false;
         if (args.length != 3) {
-            System.err.printf("Error: invalid number of parameters");
+            System.err.printf("Error: invalid number of parameters\n");
             System.exit(0);
         }
-        
+
         if (args[0].equals("-1")) {
             tree = new Bst();
             treeType = false;
@@ -28,7 +28,7 @@ public class Trees {
             tree = new Rbt();
             treeType = true;
         } else {
-            System.err.printf("Error: invalid tree type");
+            System.err.printf("Error: invalid tree type\n");
             System.exit(0);
         }
         String contentsFile = args[1];
@@ -63,7 +63,7 @@ public class Trees {
                 //System.out.println("#reporting");
                 tree.report();
             } else {
-                System.err.printf("Error: invalid command order");
+                System.err.printf("Error: invalid command order\n");
                 System.exit(0);
             }
         }
