@@ -265,6 +265,10 @@ public class Bst {
             size++;
             System.err.printf("Error: '" + s + "' does not exist in tree.\n");
             return;
+        } else if (curr.getFrequency() > 1){
+            curr.decrementFrequency();
+            size ++;
+            return;
         } else if (!curr.isLeaf()) {
             if (curr.getFrequency() > 1) {
                 curr.decrementFrequency();
